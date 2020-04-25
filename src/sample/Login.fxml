@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="250.0" prefWidth="348.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
+   <children>
+      <Label fx:id="adminOlarakGirisYapLabel" layoutX="244.0" layoutY="218.0" onMouseClicked="#adminOlarakGirisYapLabelPushed" text="Admin Girişi Yap" textFill="#0e5b9f" underline="true">
+         <font>
+            <Font name="System Bold Italic" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="-1.0" layoutY="-4.0" prefHeight="68.0" prefWidth="350.0" style="-fx-background-color: #000000;" text="  GÖZETİM MUAYENE VE EĞİTİM HİZMETLERİ" textFill="#dacfcf">
+         <font>
+            <Font name="System Bold Italic" size="16.0" />
+         </font>
+         <effect>
+            <Blend />
+         </effect>
+      </Label>
+      <HBox layoutX="74.0" layoutY="100.0" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <VBox prefHeight="68.0" prefWidth="26.0" spacing="10.0">
+               <children>
+                  <ImageView fitHeight="26.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../KullanıcıAdıImage.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fitHeight="27.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../ŞifreImage.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </VBox>
+            <VBox prefHeight="120.0" prefWidth="138.0" spacing="10.0">
+               <children>
+                  <TextField fx:id="kullaniciAdiTextField" promptText="Kullanıcı adı" />
+                  <TextField fx:id="şifreTextField" promptText="Şifre" />
+                  <Button fx:id="girisYapButton" mnemonicParsing="false" onAction="#girisYapButtonPushed" text="Giriş Yap" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

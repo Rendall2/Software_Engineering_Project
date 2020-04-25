@@ -1,0 +1,2323 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane prefHeight="1900.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ManyetikParcacikMuayeneRaporuController">
+   <content>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1900.0" prefWidth="941.0">
+         <children>
+            <VBox layoutX="177.0" prefHeight="53.0" prefWidth="750.0" style="-fx-border-style: solid;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="53.0" prefWidth="750.0" style="-fx-background-color: #ffcccc;" text="GÖZETİM MUAYENE VE EĞİTİM HİZMETLERİ" textFill="#ff3333">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutX="177.0" layoutY="54.0" prefHeight="70.0" prefWidth="750.0" style="-fx-border-style: solid;">
+               <children>
+                  <Label alignment="CENTER" prefHeight="42.0" prefWidth="750.0" style="-fx-background-color: #ffcccc;" text="MANYETİK PARÇAÇIK MUAYENE RAPORU">
+                     <font>
+                        <Font name="System Bold" size="24.0" />
+                     </font>
+                  </Label>
+                  <Label alignment="CENTER" prefHeight="26.0" prefWidth="750.0" style="-fx-background-color: #ffcccc;" text="MAGNETIC PARTICLE INSPECTION REPORT">
+                     <font>
+                        <Font name="System Italic" size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+            <VBox layoutY="124.0" prefHeight="1700.0" prefWidth="942.0">
+               <children>
+                  <HBox prefHeight="263.0" prefWidth="600.0">
+                     <children>
+                        <VBox prefHeight="264.0" prefWidth="151.0" style="-fx-border-style: solid;">
+                           <children>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Müşteri">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="149.0" style="-fx-background-color: #ffcccc;" text="Customer">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Proje Adi">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Project Name">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Test Yeri">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Inspection Place">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Muayene Standartı">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Customer">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Değerlen. Standartı">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="43.0" prefWidth="147.0" style="-fx-background-color: #ffcccc;" text="Evaluation Standart">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="263.0" prefWidth="230.0" style="-fx-border-style: solid;">
+                           <children>
+                              <ChoiceBox prefHeight="52.0" prefWidth="230.0" style="-fx-border-style: solid;" />
+                              <ChoiceBox prefHeight="52.0" prefWidth="229.0" style="-fx-border-style: solid;" />
+                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="2.0" />
+                                 </padding>
+                              </TextField>
+                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="2.0" />
+                                 </padding>
+                              </TextField>
+                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="2.0" />
+                                 </padding>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="263.0" prefWidth="151.0" style="-fx-border-style: solid;">
+                           <children>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Muayene Prosedürü">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Inspection Procedure">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Muayene Kapsamı">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Inspection Scope">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Resim No.">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Drawin No.">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Yüzey Durumu">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Surface Condition">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Muayene Aşınması">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="39.0" prefWidth="147.0" style="-fx-background-color: #ffcccc;" text="Stage of Examination">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="263.0" prefWidth="124.0">
+                           <children>
+                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="2.0" />
+                                 </padding>
+                              </TextField>
+                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="2.0" />
+                                 </padding>
+                              </TextField>
+                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="2.0" />
+                                 </padding>
+                              </TextField>
+                              <ChoiceBox prefHeight="52.5" prefWidth="150.0" style="-fx-border-style: solid;" />
+                              <ChoiceBox prefHeight="52.5" prefWidth="150.0" style="-fx-border-style: solid;" />
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="263.0" prefWidth="151.0" style="-fx-border-style: solid;">
+                           <children>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Sayfa No.">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Page">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Rapor No.">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Report No.">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Rapor Tarihi">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Report Date">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="İş Emri No.">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Job Order No.">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="16.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Teklif No.">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="147.0" style="-fx-background-color: #ffcccc;" text="Offer No.">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="263.0" prefWidth="122.0">
+                           <children>
+                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="2.0" />
+                                 </padding>
+                              </TextField>
+                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="2.0" />
+                                 </padding>
+                              </TextField>
+                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="2.0" />
+                                 </padding>
+                              </TextField>
+                              <ChoiceBox prefHeight="52.5" prefWidth="150.0" style="-fx-border-style: solid;" />
+                              <ChoiceBox prefHeight="52.5" prefWidth="150.0" style="-fx-border-style: solid;" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="48.0" prefWidth="940.0" style="-fx-border-style: dashed solid;">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="470.0" style="-fx-background-color: #ffcccc;" text="Ekipman Bilgileri/ ">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="475.0" style="-fx-background-color: #ffcccc;" text="Equipment Informations">
+                           <font>
+                              <Font name="System Italic" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="315.0" prefWidth="940.0">
+                     <children>
+                        <VBox prefHeight="264.0" prefWidth="151.0" style="-fx-border-style: solid;">
+                           <children>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Kutup Mesafesi,mm">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Pole Distance">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Cihaz">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Equipment">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="MP Taşıyıcı Ortam">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="MP Carrier Medium">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Mıknatıslama Tekniği">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Mag. Tech.">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="UV Işık Şiddeti">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="32.0" prefWidth="147.0" style="-fx-background-color: #ffcccc;" text="UV Light Sensitivy">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Işık Mesafesi">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="33.0" prefWidth="148.0" style="-fx-background-color: #ffcccc;" text="Distance of Light">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="315.0" prefWidth="125.0">
+                           <children>
+                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="2.0" />
+                                 </padding>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="2.0" />
+                                 </padding>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="2.0" />
+                                 </padding>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="2.0" />
+                                 </padding>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="2.0" />
+                                 </padding>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                                 <padding>
+                                    <Insets left="2.0" />
+                                 </padding>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="264.0" prefWidth="151.0" style="-fx-border-style: solid;">
+                           <children>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Muayene Bölgesi">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Examination Area">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Akım Tipi">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Current Type">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Luxmetre/Işık Şiddeti">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Luxmeter">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Muayene Ortamı">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Test Medium">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Mıknatıs Giderimi">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="32.0" prefWidth="147.0" style="-fx-background-color: #ffcccc;" text="Demagnetizion">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Isıl İşlem">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="33.0" prefWidth="148.0" style="-fx-background-color: #ffcccc;" text="Heat Treatment">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="315.0" prefWidth="202.0">
+                           <children>
+                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </TextField>
+                              <ChoiceBox prefHeight="53.0" prefWidth="220.0" style="-fx-border-style: solid;" />
+                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" layoutX="10.0" layoutY="116.0" prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="263.0" prefWidth="151.0" style="-fx-border-style: solid;">
+                           <children>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Yüzey Sıcaklığı (°C) ">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Surface Temperature">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="105.0" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label alignment="BOTTOM_CENTER" lineSpacing="1.0" prefHeight="67.0" prefWidth="148.0" style="-fx-background-color: #ffcccc;" text="Muayene Bölgesindeki &#10;   Alan Şiddeti, kA/m">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets />
+                                       </VBox.margin>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_CENTER" prefHeight="37.0" prefWidth="148.0" style="-fx-background-color: #ffcccc;" text="Gauss Field Strength">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Yüzey">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Surface Condition">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="17.5" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Işık Cihazı Tanımı">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="TOP_LEFT" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #ffcccc;" text="Identification of Light Equip.">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="52.8" prefWidth="150.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="32.0" prefWidth="148.0" style="-fx-background-color: #ffcccc;" text="Kaldırma Testi Tarihi/&#10;No Lifting Case">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label alignment="BOTTOM_LEFT" prefHeight="18.0" prefWidth="147.0" style="-fx-background-color: #ffcccc;" text="Date/ Number">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="315.0" prefWidth="146.0">
+                           <children>
+                              <Spinner prefHeight="52.5" prefWidth="146.0" />
+                              <ChoiceBox prefHeight="105.0" prefWidth="220.0" style="-fx-border-style: solid;" />
+                              <TextField alignment="CENTER" prefHeight="52.0" prefWidth="141.0" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" layoutX="10.0" layoutY="168.0" prefHeight="52.0" prefWidth="141.0" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </TextField>
+                              <TextField alignment="CENTER" layoutX="10.0" layoutY="168.0" prefHeight="52.0" prefWidth="141.0" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font size="11.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="181.0" prefWidth="942.0">
+                     <children>
+                        <VBox alignment="CENTER" prefHeight="52.8" prefWidth="190.0" style="-fx-border-style: solid;">
+                           <children>
+                              <ImageView fitHeight="76.0" fitWidth="186.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Alin%20Kaynagi.png" />
+                                 </image>
+                              </ImageView>
+                              <VBox alignment="CENTER" prefHeight="85.0" prefWidth="189.0" style="-fx-background-color: #ffffff;">
+                                 <children>
+                                    <Label text="Alın Kaynağı">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Butt Weld" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="BOTTOM_RIGHT" prefHeight="15.0" prefWidth="189.0" style="-fx-background-color: #ffffff;">
+                                 <children>
+                                    <CheckBox mnemonicParsing="false" prefHeight="24.0" prefWidth="20.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="52.8" prefWidth="190.0" style="-fx-border-style: solid;">
+                           <children>
+                              <ImageView fitHeight="82.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../Kose%20Kaynagi.png" />
+                                 </image>
+                              </ImageView>
+                              <VBox alignment="CENTER" prefHeight="84.0" prefWidth="201.0" style="-fx-background-color: #ffffff;">
+                                 <children>
+                                    <Label text="Köşe Kaynağı">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="Fillet Weld" />
+                                 </children>
+                              </VBox>
+                              <VBox alignment="BOTTOM_RIGHT" prefHeight="28.0" prefWidth="201.0" style="-fx-background-color: #ffffff;">
+                                 <children>
+                                    <CheckBox mnemonicParsing="false" prefHeight="24.0" prefWidth="20.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <VBox prefHeight="181.0" prefWidth="549.0" style="-fx-border-style: solid;">
+                           <children>
+                              <HBox prefHeight="36.0" prefWidth="544.0">
+                                 <children>
+                                    <Label alignment="BOTTOM_RIGHT" prefHeight="36.3" prefWidth="274.0" style="-fx-background-color: #ffcccc;" text="Süreksizliğin Yeri/">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="BOTTOM_LEFT" prefHeight="37.0" prefWidth="275.0" style="-fx-background-color: #ffcccc;" text=" Location of Discontinuity">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="36.0" prefWidth="549.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                       <children>
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="33.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="BM">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <HBox prefHeight="28.0" prefWidth="447.0" style="-fx-border-style: solid;">
+                                       <children>
+                                          <Label prefHeight="34.0" prefWidth="64.0" style="-fx-background-color: #ffcccc;" text="Ana Metal/">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="1.0" />
+                                             </HBox.margin>
+                                             <padding>
+                                                <Insets left="2.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label layoutX="11.0" layoutY="11.0" prefHeight="34.0" prefWidth="386.0" style="-fx-background-color: #ffcccc;" text=" Base Metal">
+                                             <font>
+                                                <Font name="System Italic" size="11.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="11.0" layoutY="40.0" prefHeight="36.0" prefWidth="549.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                       <children>
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="HAZ">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <HBox prefHeight="28.0" prefWidth="447.0" style="-fx-border-style: solid;">
+                                       <children>
+                                          <Label prefHeight="34.0" prefWidth="189.0" style="-fx-background-color: #ffcccc;" text="Isıdan Etkilenen Bölge/">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="1.0" />
+                                             </HBox.margin>
+                                             <padding>
+                                                <Insets left="2.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label layoutX="11.0" layoutY="11.0" prefHeight="34.0" prefWidth="386.0" style="-fx-background-color: #ffcccc;" text="Heat Affected Zone">
+                                             <font>
+                                                <Font name="System Italic" size="11.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="11.0" layoutY="70.0" prefHeight="36.0" prefWidth="549.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                       <children>
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="W">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <HBox prefHeight="28.0" prefWidth="447.0" style="-fx-border-style: solid;">
+                                       <children>
+                                          <Label prefHeight="34.0" prefWidth="46.0" style="-fx-background-color: #ffcccc;" text="Kaynak/">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="1.0" />
+                                             </HBox.margin>
+                                             <padding>
+                                                <Insets left="2.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label layoutX="11.0" layoutY="11.0" prefHeight="35.0" prefWidth="386.0" style="-fx-background-color: #ffcccc;" text=" Weld">
+                                             <font>
+                                                <Font name="System Italic" size="11.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                              <HBox layoutX="11.0" layoutY="70.0" prefHeight="36.3" prefWidth="549.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                       <children>
+                                          <Label alignment="BOTTOM_CENTER" prefHeight="37.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="B">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </VBox>
+                                    <HBox prefHeight="28.0" prefWidth="447.0" style="-fx-border-style: solid;">
+                                       <children>
+                                          <Label prefHeight="34.0" prefWidth="88.0" style="-fx-background-color: #ffcccc;" text="Kaynak Ağzı/">
+                                             <font>
+                                                <Font name="System Bold" size="11.0" />
+                                             </font>
+                                             <HBox.margin>
+                                                <Insets left="1.0" />
+                                             </HBox.margin>
+                                             <padding>
+                                                <Insets left="2.0" />
+                                             </padding>
+                                          </Label>
+                                          <Label layoutX="11.0" layoutY="11.0" prefHeight="34.0" prefWidth="386.0" style="-fx-background-color: #ffcccc;" text=" Bevel">
+                                             <font>
+                                                <Font name="System Italic" size="11.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="160.0" prefWidth="942.0">
+                     <children>
+                        <HBox prefHeight="53.0" prefWidth="942.0" style="-fx-border-style: solid;">
+                           <children>
+                              <VBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="190.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="189.0" style="-fx-background-color: #ffcccc;" text="Standarttan Sapmalar">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label prefHeight="18.0" prefWidth="189.0" style="-fx-background-color: #ffcccc;" text="Standart Deviations">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <TextField prefHeight="52.0" prefWidth="738.0" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="53.0" prefWidth="942.0" style="-fx-border-style: solid;">
+                           <children>
+                              <VBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="190.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="189.0" style="-fx-background-color: #ffcccc;" text="Muayene Tarihleri">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label prefHeight="18.0" prefWidth="189.0" style="-fx-background-color: #ffcccc;" text="Inspection Results">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <TextField prefHeight="52.0" prefWidth="738.0" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="53.0" prefWidth="942.0" style="-fx-border-style: solid;">
+                           <children>
+                              <VBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="190.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="30.0" prefWidth="189.0" style="-fx-background-color: #ffcccc;" text="Açıklamalar ve Ekler">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                    <Label prefHeight="18.0" prefWidth="189.0" style="-fx-background-color: #ffcccc;" text="Description and Attachments">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                       <padding>
+                                          <Insets left="5.0" />
+                                       </padding>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <TextField prefHeight="52.0" prefWidth="738.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <HBox layoutX="10.0" layoutY="273.0" prefHeight="48.0" prefWidth="940.0" style="-fx-border-style: dashed solid;">
+                     <children>
+                        <Label alignment="CENTER_RIGHT" prefHeight="46.0" prefWidth="470.0" style="-fx-background-color: #ffcccc;" text="Muayene Sonuçları/">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="10.0" layoutY="10.0" prefHeight="46.0" prefWidth="475.0" style="-fx-background-color: #ffcccc;" text="Inspection Results">
+                           <font>
+                              <Font name="System Italic" size="16.0" />
+                           </font>
+                           <padding>
+                              <Insets left="2.0" />
+                           </padding>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <VBox prefHeight="486.0" prefWidth="942.0">
+                     <children>
+                        <HBox prefHeight="61.0" prefWidth="942.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="62.0" prefWidth="56.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="34.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="Sıra No">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_CENTER" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="Serial No">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="34.0" prefWidth="158.0" style="-fx-background-color: #ffcccc;" text="Kaynak/Parça No.">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_CENTER" prefHeight="25.0" prefWidth="157.0" style="-fx-background-color: #ffcccc;" text="Weld/Piece No.">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="34.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="Kontrol Uzun.">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_CENTER" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="Test Length">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #ffcccc;" text="Kaynak Yön">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_CENTER" prefHeight="25.0" prefWidth="128.0" style="-fx-background-color: #ffcccc;" text="Welding Process">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="34.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="Kalınlık(mm)">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_CENTER" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="Thickness">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="34.0" prefWidth="110.0" style="-fx-background-color: #ffcccc;" text="Çap">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_CENTER" prefHeight="25.0" prefWidth="110.0" style="-fx-background-color: #ffcccc;" text="Diameter">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="34.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="Hata Tipi">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_CENTER" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="Defect Type">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="34.0" prefWidth="115.0" style="-fx-background-color: #ffcccc;" text="Hatanın Yeri">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_CENTER" prefHeight="25.0" prefWidth="114.0" style="-fx-background-color: #ffcccc;" text="Defect Location">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="34.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="Sonuç">
+                                       <font>
+                                          <Font name="System Bold" size="11.0" />
+                                       </font>
+                                    </Label>
+                                    <Label alignment="TOP_CENTER" prefHeight="25.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="Result">
+                                       <font>
+                                          <Font name="System Italic" size="11.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="42.0" prefWidth="942.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="62.0" prefWidth="56.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="42.0" prefWidth="10.0" text="1">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children></VBox>
+                              <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="72.0" prefHeight="42.0" prefWidth="942.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="62.0" prefWidth="56.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="42.0" prefWidth="10.0" text="2">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="114.0" prefHeight="42.0" prefWidth="942.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="62.0" prefWidth="56.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="42.0" prefWidth="10.0" text="3">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="156.0" prefHeight="42.0" prefWidth="942.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="62.0" prefWidth="56.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="42.0" prefWidth="10.0" text="4">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="199.0" prefHeight="42.0" prefWidth="942.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="62.0" prefWidth="56.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="42.0" prefWidth="10.0" text="5">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="241.0" prefHeight="42.0" prefWidth="942.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="62.0" prefWidth="56.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="42.0" prefWidth="10.0" text="6">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="156.0" prefHeight="42.0" prefWidth="942.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="62.0" prefWidth="56.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="42.0" prefWidth="10.0" text="7">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="156.0" prefHeight="42.0" prefWidth="942.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="62.0" prefWidth="56.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="42.0" prefWidth="10.0" text="8">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="199.0" prefHeight="42.0" prefWidth="942.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="62.0" prefWidth="56.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="42.0" prefWidth="10.0" text="9">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="199.0" prefHeight="42.0" prefWidth="942.0">
+                           <children>
+                              <VBox alignment="CENTER" prefHeight="62.0" prefWidth="56.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <Label prefHeight="42.0" prefWidth="19.0" text="10">
+                                       <font>
+                                          <Font name="System Bold" size="12.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                       <font>
+                                          <Font size="11.0" />
+                                       </font></TextField>
+                                 </children>
+                              </VBox>
+                              <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
+                                 <children>
+                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <HBox prefHeight="51.0" prefWidth="942.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="222.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label prefHeight="49.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="Personel Bilgileri/">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                              <Label prefHeight="48.0" prefWidth="115.0" style="-fx-background-color: #ffcccc;" text=" Personal Information">
+                                 <font>
+                                    <Font name="System Italic" size="11.0" />
+                                 </font>
+                              </Label>
+                           </children></HBox>
+                        <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="131.0" style="-fx-background-color: #ffcccc;" text="Operatör/">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="50.0" prefWidth="143.0" style="-fx-background-color: #ffcccc;" text=" Comfirmation">
+                                 <font>
+                                    <Font name="System Italic" size="11.0" />
+                                 </font>
+                              </Label>
+                           </children></HBox>
+                        <HBox layoutX="210.0" layoutY="10.0" prefHeight="51.0" prefWidth="230.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="136.0" style="-fx-background-color: #ffcccc;" text="Değerlendiren/">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #ffcccc;" text=" Evaluated by">
+                                 <font>
+                                    <Font name="System Italic" size="11.0" />
+                                 </font>
+                              </Label>
+                           </children></HBox>
+                        <HBox layoutX="210.0" layoutY="10.0" prefHeight="100.0" prefWidth="180.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="111.0" style="-fx-background-color: #ffcccc;" text="Onay/">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="50.0" prefWidth="140.0" style="-fx-background-color: #ffcccc;" text=" Confirmation">
+                                 <font>
+                                    <Font name="System Italic" size="11.0" />
+                                 </font>
+                              </Label>
+                           </children></HBox>
+                        <HBox layoutX="210.0" layoutY="10.0" prefHeight="51.0" prefWidth="140.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="60.0" style="-fx-background-color: #ffcccc;" text="Müşteri/ ">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                              </Label>
+                              <Label prefHeight="50.0" prefWidth="71.0" style="-fx-background-color: #ffcccc;" text="Customer">
+                                 <font>
+                                    <Font name="System Italic" size="11.0" />
+                                 </font>
+                              </Label>
+                           </children></HBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="1512.0" prefHeight="51.0" prefWidth="942.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="222.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label prefHeight="50.0" prefWidth="66.0" style="-fx-background-color: #ffcccc;" text="Adı Soyadı/">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                              <Label prefHeight="50.0" prefWidth="148.0" style="-fx-background-color: #ffcccc;" text=" Name Surname">
+                                 <font>
+                                    <Font name="System Italic" size="11.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="50.0" prefWidth="192.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="210.0" layoutY="10.0" prefHeight="51.0" prefWidth="230.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="53.0" prefWidth="222.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="210.0" layoutY="10.0" prefHeight="100.0" prefWidth="180.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="63.0" prefWidth="180.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="210.0" layoutY="10.0" prefHeight="51.0" prefWidth="140.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="53.0" prefWidth="118.0" text="Label" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="1564.0" prefHeight="51.0" prefWidth="942.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="222.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label prefHeight="48.0" prefWidth="46.0" style="-fx-background-color: #ffcccc;" text="Seviye/">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                              <Label prefHeight="48.0" prefWidth="168.0" style="-fx-background-color: #ffcccc;" text=" Level">
+                                 <font>
+                                    <Font name="System Italic" size="11.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="51.0" prefWidth="192.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="210.0" layoutY="10.0" prefHeight="51.0" prefWidth="230.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="56.0" prefWidth="226.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="210.0" layoutY="10.0" prefHeight="100.0" prefWidth="180.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="50.0" prefWidth="178.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="210.0" layoutY="10.0" prefHeight="51.0" prefWidth="140.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="56.0" prefWidth="117.0" text="Label" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="1615.0" prefHeight="51.0" prefWidth="942.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="222.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label prefHeight="48.0" prefWidth="39.0" style="-fx-background-color: #ffcccc;" text="Tarih/">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                              <Label prefHeight="48.0" prefWidth="174.0" style="-fx-background-color: #ffcccc;" text=" Date">
+                                 <font>
+                                    <Font name="System Italic" size="11.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="51.0" prefWidth="193.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="210.0" layoutY="10.0" prefHeight="51.0" prefWidth="230.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="49.0" prefWidth="226.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="210.0" layoutY="10.0" prefHeight="100.0" prefWidth="180.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="59.0" prefWidth="178.0" text="Label" />
+                           </children>
+                        </HBox>
+                        <HBox layoutX="210.0" layoutY="10.0" prefHeight="51.0" prefWidth="140.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="50.0" prefWidth="116.0" text="Label" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Button layoutX="414.0" layoutY="1831.0" mnemonicParsing="false" text="Excele aktar">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

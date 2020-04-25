@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="450.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EkipmanBilgileriController">
+   <children>
+      <VBox layoutX="74.0" layoutY="101.0" prefHeight="298.0" prefWidth="629.0" spacing="20.0">
+         <children>
+            <TableView fx:id="ekipmanTableView" prefHeight="200.0" prefWidth="667.0">
+              <columns>
+                <TableColumn fx:id="ekipmanAdiTableColumn" onEditCommit="#changeEkipmanAdiCellEvent" prefWidth="127.99996566772461" text="Ekipman Adı" />
+                <TableColumn fx:id="kutupMesafesiTableColumn" onEditCommit="#changeKutupMesafesiCellEvent" prefWidth="96.80000305175781" text="Kutup Mesafesi" />
+                  <TableColumn fx:id="mpTasiyiciOrtamTableColumn" onEditCommit="#changeMPTasiyiciOrtamCellEvent" prefWidth="112.00006103515625" text="MP Taşıyıcı Ortam" />
+                  <TableColumn fx:id="miknatislamateknigiTableColumn" minWidth="0.0" onEditCommit="#changeMiknatislamaTeknigiCellEvent" prefWidth="109.60003662109375" text="Mıknatıslama Tek." />
+                  <TableColumn fx:id="uvIsikSiddetiTableColumn" onEditCommit="#changeUVIsikSiddetiCellEvent" prefWidth="85.60003662109375" text="UV Işık Şidetti" />
+                  <TableColumn fx:id="isikMesafesiTableColumn" onEditCommit="#changeIsikMesafesiCellEvent" prefWidth="94.39996337890625" text="Işık Mesafesi" />
+              </columns>
+            </TableView>
+            <HBox prefHeight="26.0" prefWidth="200.0" spacing="16.0">
+               <children>
+                  <TextField fx:id="ekipmanAdiTextField" prefWidth="145.0" promptText="Ekipman Adı" />
+                  <TextField fx:id="kutupMesafesiTextField" prefWidth="145.0" promptText="Kutup Mesafesi" />
+                  <TextField fx:id="mpTasiyiciOrtamTextField" prefWidth="145.0" promptText="MP Taşıyıcı Ortam" />
+                  <TextField fx:id="miknatislamaTeknigiTextField" prefWidth="145.0" promptText="Mıknatıslama Tekniği" />
+               </children>
+            </HBox>
+            <HBox prefHeight="26.0" prefWidth="200.0" spacing="16.0">
+               <children>
+                  <TextField fx:id="uvIsikSiddetiTextField" prefHeight="26.0" prefWidth="145.0" promptText="UV Işık Şiddeti" />
+                  <Button mnemonicParsing="false" onAction="#ekipmaniSil" prefWidth="145.0" text="Seçilen Ekipmanı Sil" />
+                  <Button mnemonicParsing="false" onAction="#ekipmanEkle" prefWidth="145.0" text="Yeni Ekipman Ekle" />
+                  <TextField fx:id="isikMesafesiTextField" prefHeight="26.0" prefWidth="145.0" promptText="Işık Mesafesi" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button layoutX="14.0" layoutY="410.0" mnemonicParsing="false" onAction="#geriButtonPushed" text="Geri" />
+      <Label alignment="CENTER" prefHeight="68.0" prefWidth="750.0" style="-fx-background-color: #000000;" text="GÖZETİM MUAYENE VE EĞİTİM HİZMETLERİ" textFill="#dacfcf">
+         <font>
+            <Font name="System Bold Italic" size="27.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
