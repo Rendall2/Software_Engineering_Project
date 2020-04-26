@@ -87,4 +87,8 @@ public class Calisan {
         }
     }
 
+    public void updateCalisanAdi() throws  SQLException{
+
+    }
+
 }

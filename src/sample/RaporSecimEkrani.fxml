@@ -65,10 +65,6 @@
             </VBox>
          </children>
       </HBox>
-      <Button layoutX="15.0" layoutY="433.0" mnemonicParsing="false" onAction="#geriButtonPushed" text="Geri">
-         <font>
-            <Font size="11.0" />
-         </font></Button>
       <Button fx:id="RaporOlusturmayaBaslaButton" layoutX="383.0" layoutY="433.0" mnemonicParsing="false" onAction="#RaporOlusturmayaBaslaButtonPushed" text="Rapor oluşturmaya başla">
          <font>
             <Font size="11.0" />

@@ -23,10 +23,10 @@
             <TableView fx:id="calisanTableView" prefHeight="280.0" prefWidth="515.0">
               <columns>
                   <TableColumn fx:id="calisanIDTableColumn" prefWidth="27.99993896484375" text="ID" />
-                <TableColumn fx:id="calisanAdiTableColumn" onEditCommit="#changeAdCellEvent" prefWidth="146.39997100830078" text="Ad" />
-                <TableColumn fx:id="calisanSoyadiTableColumn" onEditCommit="#changeSoyadCellEvent" prefWidth="115.20001220703125" text="Soyad" />
-                  <TableColumn fx:id="calisanLevelTableColumn" onEditCommit="#changeLevelCellEvent" prefWidth="107.20001220703125" text="Level" />
-                  <TableColumn fx:id="calisanSertifikaTarihiTableColumn" onEditCommit="#changeSertifikaTarihi" prefWidth="116.00001831054692" text="Sertifika Bitiş Süresi" />
+                <TableColumn fx:id="calisanAdiTableColumn" onEditCommit="#updateCalisanAdiCellEvent" prefWidth="146.39997100830078" text="Ad" />
+                <TableColumn fx:id="calisanSoyadiTableColumn" onEditCommit="#updateCalisanSoyadiCellEvent" prefWidth="115.20001220703125" text="Soyad" />
+                  <TableColumn fx:id="calisanLevelTableColumn" onEditCommit="#updateCalisanLevelCellEvent" prefWidth="107.20001220703125" text="Level" />
+                  <TableColumn fx:id="calisanSertifikaTarihiTableColumn" onEditCommit="#updateCalisanSertifikaTarihi" prefWidth="116.00001831054692" text="Sertifika Bitiş Süresi" />
               </columns>
             </TableView>
             <HBox prefHeight="25.0" prefWidth="200.0" spacing="20.0">
@@ -36,10 +36,14 @@
                   <TextField fx:id="levelTextField" prefHeight="26.0" prefWidth="105.0" promptText="Level" />
                   <DatePicker fx:id="sertifikaTarihiDatePicker" prefHeight="26.0" prefWidth="150.0" promptText="Sertifika Bitiş Tarihi" />
                </children></HBox>
-            <ToolBar prefHeight="37.0" prefWidth="220.0">
+            <ToolBar prefHeight="38.0" prefWidth="524.0">
                <items>
-                  <Button mnemonicParsing="false" onAction="#calisanSil" prefHeight="26.0" prefWidth="144.0" text="Seçilen Çalışan(lar)ı Sil" />
-                  <Button mnemonicParsing="false" onAction="#calisanEkle" text="Yeni Çalışan Ekle" />
+                  <HBox prefHeight="26.0" prefWidth="386.0">
+                     <children>
+                        <Button minWidth="125.0" mnemonicParsing="false" onAction="#calisanSil" prefHeight="26.0" prefWidth="123.0" text="Seçilen Çalışanı Sil" />
+                     </children>
+                  </HBox>
+                  <Button minWidth="125.0" mnemonicParsing="false" onAction="#calisanEkle" text="Yeni Çalışan Ekle" />
                </items>
             </ToolBar>
          </children>

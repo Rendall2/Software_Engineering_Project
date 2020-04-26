@@ -33,33 +33,117 @@ public class CalisanBilgileriController {
     @FXML private TextField soyadTextField;
     @FXML private TextField levelTextField;
     @FXML private DatePicker sertifikaTarihiDatePicker;
+    Controller controller;
 
-    @FXML private Label errorMsgLabel;
-
-    public void changeAdCellEvent(TableColumn.CellEditEvent edittedCell){
-        Connection connection = Database.getConnenction();
+    public void updateCalisanAdiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException{
+        //SQL
+        Connection conn = Database.getConnenction();
+        PreparedStatement statement = null;
+        String sql = "UPDATE Calisan SET calisanAdi=? WHERE calisanID=?";
+        //TableView
         Calisan selectedCalisan = calisanTableView.getSelectionModel().getSelectedItem();
         selectedCalisan.setCalisanAdi(edittedCell.getNewValue().toString());
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, edittedCell.getNewValue().toString());
+            statement.setInt(2, calisanTableView.getSelectionModel().getSelectedItem().getCalisanID());
+            statement.executeUpdate();
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        finally {
+            if(conn!=null) conn.close();
+            if(statement!=null) statement.close();
+        }
+
     }
 
-    public void changeSoyadCellEvent(TableColumn.CellEditEvent edittedCell){
+    public void updateCalisanSoyadiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException{
+        //SQL
+        Connection conn = Database.getConnenction();
+        PreparedStatement statement = null;
+        String sql = "UPDATE Calisan SET calisanSoyadi=? WHERE calisanID=?";
+        //TableView
         Calisan selectedCalisan = calisanTableView.getSelectionModel().getSelectedItem();
         selectedCalisan.setCalisanSoyadi(edittedCell.getNewValue().toString());
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, edittedCell.getNewValue().toString());
+            statement.setInt(2, calisanTableView.getSelectionModel().getSelectedItem().getCalisanID());
+            statement.executeUpdate();
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        finally {
+            if(conn!=null) conn.close();
+            if(statement!=null) statement.close();
+        }
+
     }
 
-    public void changeLevelCellEvent(TableColumn.CellEditEvent edittedCell){
+    public void updateCalisanLevelCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException{
+        //SQL
+        Connection conn = Database.getConnenction();
+        PreparedStatement statement = null;
+        //TableView
         Calisan selectedCalisan = calisanTableView.getSelectionModel().getSelectedItem();
+        String sql = "UPDATE Calisan SET calisanLevel=? WHERE calisanID=?";
         selectedCalisan.setCalisanLevel(edittedCell.getNewValue().toString());
+        try {
+            statement = conn.prepareStatement(sql);
+            statement.setString(1, edittedCell.getNewValue().toString());
+            statement.setInt(2, calisanTableView.getSelectionModel().getSelectedItem().getCalisanID());
+            statement.executeUpdate();
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        finally {
+            if(conn!=null) conn.close();
+            if(statement!=null) statement.close();
+        }
+
     }
 
-    public void changeSertifikaTarihi(TableColumn.CellEditEvent edittedCell){
+    public void updateCalisanSertifikaTarihi(TableColumn.CellEditEvent edittedCell) throws SQLException{
+        //SQL
+        Connection conn = null;
+        PreparedStatement statement = null;
+        String sql = "UPDATE Calisan SET calisanSertifikaTarihi=? WHERE calisanID=?";
+
+        //Tableview
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-d");
+        Calisan selectedCalisan = calisanTableView.getSelectionModel().getSelectedItem();
+        String date = edittedCell.getNewValue().toString();
+        LocalDate localDate = LocalDate.parse(date, formatter);
+        selectedCalisan.setCalisanSertifikaTarihi(localDate);
+        try {
+            conn = Database.getConnenction();
+            Date date1 = Date.valueOf(calisanTableView.getSelectionModel().getSelectedItem().getCalisanSertifikaTarihi());
+            statement = conn.prepareStatement(sql);
+            statement.setDate(1, date1);
+            statement.setInt(2, calisanTableView.getSelectionModel().getSelectedItem().getCalisanID());
+            statement.executeUpdate();
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        finally {
+            if(conn!=null) conn.close();
+            if(statement!=null) statement.close();
+        }
+
+    }
+    /*public void changeSertifikaTarihi(TableColumn.CellEditEvent edittedCell){
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-d");
         Calisan personSelected = calisanTableView.getSelectionModel().getSelectedItem();
         String date = edittedCell.getNewValue().toString();
         System.out.println(date);
         LocalDate localDate = LocalDate.parse(date, formatter);
         personSelected.setCalisanSertifikaTarihi(localDate);
-    }
+    } */
 
    /* public ObservableList<Calisan> getCalisanlar(){
         ObservableList<Calisan> calisanlar = FXCollections.observableArrayList();
@@ -94,7 +178,7 @@ public class CalisanBilgileriController {
     }
 
     //This method will delete the chosen Person(s)
-    public void calisanSil() throws SQLException{
+     public void calisanSil() throws SQLException{
         Connection conn = null;
         PreparedStatement statement = null;
         ObservableList<Calisan> selectedRow, secilenCalisanlar;
