@@ -11,6 +11,7 @@ public class Calisan {
     private String calisanLevel;
     private String calisanSifre;
     private LocalDate calisanSertifikaTarihi;
+    private int calisanID;
 
 
 
@@ -20,6 +21,8 @@ public class Calisan {
         this.calisanLevel = calisanLevel;
         this.calisanSertifikaTarihi = sertifikatarihi;
     }
+
+    public int getCalisanID() { return calisanID; }
 
     public String getCalisanAdi() { return calisanAdi; }
 
@@ -31,6 +34,15 @@ public class Calisan {
 
     public LocalDate getCalisanSertifikaTarihi() { return calisanSertifikaTarihi; }
 
+    public void setCalisanID(int calisanID) {
+        if(calisanID>0){
+            this.calisanID = calisanID;
+        }
+        else{
+            throw new IllegalArgumentException("Calisan ID'si pozitif bir değer olmalıdır");
+        }
+         }
+
     public void setCalisanAdi(String calisanAdi) { this.calisanAdi = calisanAdi; }
 
     public void setCalisanSoyadi(String calisanSoyadi) { this.calisanSoyadi = calisanSoyadi; }
@@ -39,7 +51,7 @@ public class Calisan {
 
     public void setCalisanSifre(String calisanSifre) { this.calisanSifre = calisanSifre; }
 
-    public void setCalisanZertifikatsDatum(LocalDate calisanSertifikaTarihi) { this.calisanSertifikaTarihi = calisanSertifikaTarihi; }
+    public void setCalisanSertifikaTarihi(LocalDate calisanSertifikaTarihi) { this.calisanSertifikaTarihi = calisanSertifikaTarihi; }
 
     public void insertIntoDB() throws SQLException {
         Connection conn = null;
@@ -50,7 +62,7 @@ public class Calisan {
             conn = Database.getConnenction();
             //2. Create a String that holds the query with ? as inputs
             String sql = "INSERT INTO Calisan(calisanAdi,calisanSoyadi,calisanLevel,calisanSertifikaTarihi) " +
-                    "VALUES (?,?,?,?)";
+                         "VALUES (?,?,?,?)";
 
             //3. Prepare the query
             preparedStatement = conn.prepareStatement(sql);
@@ -59,9 +71,9 @@ public class Calisan {
             Date db = Date.valueOf(calisanSertifikaTarihi);
 
             //5. Bind the values to the parameters
-            preparedStatement.setString(1, calisanAdi.toString());
-            preparedStatement.setString(2, calisanSoyadi.toString());
-            preparedStatement.setString(3, calisanLevel.toString());
+            preparedStatement.setString(1, calisanAdi);
+            preparedStatement.setString(2, calisanSoyadi);
+            preparedStatement.setString(3, calisanLevel);
             preparedStatement.setDate(4,db);
 
             preparedStatement.executeUpdate();
