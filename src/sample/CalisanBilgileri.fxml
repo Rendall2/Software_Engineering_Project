@@ -11,14 +11,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="420.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CalisanBilgileriController">
+<AnchorPane prefHeight="460.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CalisanBilgileriController">
    <children>
-      <Label alignment="CENTER" prefHeight="68.0" prefWidth="610.0" style="-fx-background-color: #000000;" text="GÖZETİM MUAYENE VE  EĞİTİM HİZMETLERİ" textFill="#dacfcf">
-         <font>
-            <Font name="System Bold Italic" size="20.0" />
-         </font>
-      </Label>
-      <Button layoutX="14.0" layoutY="380.0" mnemonicParsing="false" onAction="#geriButtonPushed" text="Geri" />
+      <Button layoutX="14.0" layoutY="420.0" mnemonicParsing="false" onAction="#geriButtonPushed" text="Geri" />
       <VBox layoutX="47.0" layoutY="96.0" prefHeight="263.0" prefWidth="515.0" spacing="15.0">
          <children>
             <TableView fx:id="CalisanTableView" prefHeight="280.0" prefWidth="515.0">
@@ -52,5 +47,15 @@
             </HBox>
          </children>
       </VBox>
+      <Label alignment="CENTER" prefHeight="68.0" prefWidth="610.0" style="-fx-background-color: #000000;" text="GÖZETİM MUAYENE VE  EĞİTİM HİZMETLERİ" textFill="#dacfcf">
+         <font>
+            <Font name="System Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="errorMsgLabel" layoutX="47.0" layoutY="383.0" prefHeight="26.0" prefWidth="515.0" text="Label" textFill="RED">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

@@ -16,6 +16,10 @@ import javafx.stage.Stage;
 import javafx.util.converter.LocalDateStringConverter;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.Month;
 import java.time.format.DateTimeFormatter;
@@ -32,7 +36,10 @@ public class CalisanBilgileriController {
     @FXML private TextField levelTextField;
     @FXML private DatePicker sertifikaTarihiDatePicker;
 
+    @FXML private Label errorMsgLabel;
+    Connection connection;
     public void changeAdCellEvent(TableColumn.CellEditEvent edittedCell){
+        connection = Database.getConnenction();
         Calisan selectedCalisan = CalisanTableView.getSelectionModel().getSelectedItem();
         selectedCalisan.setCalisanAdi(edittedCell.getNewValue().toString());
     }
@@ -56,12 +63,12 @@ public class CalisanBilgileriController {
         personSelected.setCalisanZertifikatsDatum(localDate);
     }
 
-    public ObservableList<Calisan> getCalisanlar(){
+   /* public ObservableList<Calisan> getCalisanlar(){
         ObservableList<Calisan> calisanlar = FXCollections.observableArrayList();
         calisanlar.add(new Calisan("Duygu","Ezengin","ÜÜÜÜÜÜÜÇÇÇÇÇ",LocalDate.of(2019, Month.AUGUST,14)));
 
         return calisanlar;
-    }
+    } */
 
     public void geriButtonPushed(ActionEvent event) throws IOException {
         Parent AdminAnaEkranParent = FXMLLoader.load(getClass().getResource("AdminAnaEkran.fxml"));
@@ -75,10 +82,18 @@ public class CalisanBilgileriController {
     }
 
     public void calisanEkle(){
-        Calisan newCalisan = new Calisan(adTextField.getText(), soyadTextField.getText(), levelTextField.getText(),sertifikaTarihiDatePicker.getValue());
+        try {
+            Calisan newCalisan = new Calisan(adTextField.getText(), soyadTextField.getText(),
+                                            levelTextField.getText(),sertifikaTarihiDatePicker.getValue());
+            //Get all the items from the table as a list, then add the new Person
+            errorMsgLabel.setText("");
+            newCalisan.insertIntoDB();
+            CalisanTableView.getItems().add(newCalisan);
+        }
+        catch (Exception e){
+            errorMsgLabel.setText(e.getMessage());
+        }
 
-        //Get all the items from the table as a list, then add the new Person
-        CalisanTableView.getItems().add(newCalisan);
     }
 
     //This method will delete the chosen Person(s)
@@ -93,12 +108,13 @@ public class CalisanBilgileriController {
 
 
     public void initialize() {
+        errorMsgLabel.setText("");
         CalisanAdiTableColumn.setCellValueFactory(new PropertyValueFactory<Calisan,String>("calisanAdi"));
         CalisanSoyadiTableColumn.setCellValueFactory(new PropertyValueFactory<Calisan,String>("calisanSoyadi"));
         CalisanLevelTableColumn.setCellValueFactory(new PropertyValueFactory<Calisan,String>("calisanLevel"));
         CalisanSertifikaTarihiTableColumn.setCellValueFactory(new PropertyValueFactory<Calisan,LocalDate>("calisanSertifikaTarihi"));
 
-        CalisanTableView.setItems(getCalisanlar());
+        //CalisanTableView.setItems(getCalisanlar());
 
         CalisanTableView.setEditable(true);
         CalisanAdiTableColumn.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -109,5 +125,46 @@ public class CalisanBilgileriController {
 
         CalisanTableView.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
 
+        try{
+            loadCalisanlar();
+        }
+        catch (SQLException e){
+            System.err.println(e.getMessage());
+        }
+    }
+    //Bu method SQL'den çalışanları(ID hariç) çeker
+    public void loadCalisanlar() throws SQLException{
+        ObservableList<Calisan> calisanlar = FXCollections.observableArrayList();
+        Connection conn = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        try{
+            //1. Connecting to DB
+            conn = Database.getConnenction();
+
+            //2. Create a statemant object
+            statement = conn.createStatement();
+
+            //3. Create the SQL query
+            resultSet = statement.executeQuery("SELECT calisanAdi,calisanSoyadi,calisanLevel,calisanSertifikaTarihi FROM Calisan");
+
+            //4. Create calisan objects from each record
+            while(resultSet.next()){
+                Calisan newCalisan = new Calisan(resultSet.getString("calisanAdi"),
+                                                resultSet.getString("calisanSoyadi"),
+                                                resultSet.getString("calisanLevel"),
+                                                resultSet.getDate("calisanSertifikaTarihi").toLocalDate());
+                calisanlar.add(newCalisan);
+            }
+            CalisanTableView.getItems().addAll(calisanlar);
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        finally {
+            if(conn!=null) { conn.close(); }
+            if(statement!=null) { statement.close(); }
+            if(resultSet!=null) { resultSet.close(); }
+        }
     }
 }

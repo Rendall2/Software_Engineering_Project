@@ -6,44 +6,38 @@ import java.sql.*;
 import java.time.LocalDate;
 
 public class Calisan {
-    private SimpleStringProperty calisanAdi;
-    private SimpleStringProperty calisanSoyadi;
-    private SimpleStringProperty calisanLevel;
-    private SimpleStringProperty calisanSifre;
+    private String calisanAdi;
+    private String calisanSoyadi;
+    private String calisanLevel;
+    private String calisanSifre;
     private LocalDate calisanSertifikaTarihi;
 
 
 
-    public Calisan(String ad, String soyad, LocalDate sertifikatarihi) {
-        this.calisanAdi = new SimpleStringProperty(ad);
-        this.calisanSoyadi = new SimpleStringProperty(soyad);
-        this.calisanSertifikaTarihi = sertifikatarihi;
-    }
-
     public Calisan(String ad, String soyad, String calisanLevel, LocalDate sertifikatarihi) {
-        this.calisanAdi = new SimpleStringProperty(ad);
-        this.calisanSoyadi = new SimpleStringProperty(soyad);
-        this.calisanLevel = new SimpleStringProperty(calisanLevel);
+        this.calisanAdi = ad;
+        this.calisanSoyadi = soyad;
+        this.calisanLevel = calisanLevel;
         this.calisanSertifikaTarihi = sertifikatarihi;
     }
 
-    public String getCalisanAdi() { return calisanAdi.get(); }
+    public String getCalisanAdi() { return calisanAdi; }
 
-    public String getCalisanSoyadi() { return calisanSoyadi.get(); }
+    public String getCalisanSoyadi() { return calisanSoyadi; }
 
-    public String getCalisanLevel() { return calisanLevel.get(); }
+    public String getCalisanLevel() { return calisanLevel; }
 
-    public String getCalisanSifre() { return calisanSifre.get(); }
+    public String getCalisanSifre() { return calisanSifre; }
 
     public LocalDate getCalisanSertifikaTarihi() { return calisanSertifikaTarihi; }
 
-    public void setCalisanAdi(String calisanAdi) { this.calisanAdi = new SimpleStringProperty(calisanAdi); }
+    public void setCalisanAdi(String calisanAdi) { this.calisanAdi = calisanAdi; }
 
-    public void setCalisanSoyadi(String calisanSoyadi) { this.calisanSoyadi = new SimpleStringProperty(calisanSoyadi); }
+    public void setCalisanSoyadi(String calisanSoyadi) { this.calisanSoyadi = calisanSoyadi; }
 
-    public void setCalisanLevel(String calisanLevel) { this.calisanLevel = new SimpleStringProperty(calisanLevel); }
+    public void setCalisanLevel(String calisanLevel) { this.calisanLevel = calisanLevel; }
 
-    public void setCalisanSifre(String calisanSifre) { this.calisanSifre.set(calisanSifre); }
+    public void setCalisanSifre(String calisanSifre) { this.calisanSifre = calisanSifre; }
 
     public void setCalisanZertifikatsDatum(LocalDate calisanSertifikaTarihi) { this.calisanSertifikaTarihi = calisanSertifikaTarihi; }
 
@@ -53,8 +47,7 @@ public class Calisan {
 
         try{
             //1.Connect to the DB
-            conn = DriverManager.getConnection("jdbc:hsqldb:file:C:\\Users\\Ogulcan\\Desktop\\ProjeFolderı\\","Rendall","RelmAdo239");
-            System.out.println("database connected");
+            conn = Database.getConnenction();
             //2. Create a String that holds the query with ? as inputs
             String sql = "INSERT INTO Calisan(calisanAdi,calisanSoyadi,calisanLevel,calisanSertifikaTarihi) " +
                     "VALUES (?,?,?,?)";

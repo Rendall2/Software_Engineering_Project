@@ -21,8 +21,8 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) throws SQLException {
-        Calisan calisan = new Calisan("Duygu","e","iki",LocalDate.of(2019, Month.AUGUST,14));
-        calisan.insertIntoDB();
+        //Calisan calisan = new Calisan("s","e","iki",LocalDate.of(2019, Month.AUGUST,14));
+        //calisan.insertIntoDB();
 
         launch(args);
     }
