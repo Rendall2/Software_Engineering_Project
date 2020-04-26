@@ -6,6 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.Month;
+
 public class Main extends Application {
 
     @Override
@@ -16,8 +20,10 @@ public class Main extends Application {
         primaryStage.show();
     }
 
+    public static void main(String[] args) throws SQLException {
+        Calisan calisan = new Calisan("Duygu","e","iki",LocalDate.of(2019, Month.AUGUST,14));
+        calisan.insertIntoDB();
 
-    public static void main(String[] args) {
         launch(args);
     }
 }

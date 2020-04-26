@@ -2,6 +2,7 @@ package sample;
 
 import javafx.beans.property.SimpleStringProperty;
 
+import java.sql.*;
 import java.time.LocalDate;
 
 public class Calisan {
@@ -45,5 +46,40 @@ public class Calisan {
     public void setCalisanSifre(String calisanSifre) { this.calisanSifre.set(calisanSifre); }
 
     public void setCalisanZertifikatsDatum(LocalDate calisanSertifikaTarihi) { this.calisanSertifikaTarihi = calisanSertifikaTarihi; }
+
+    public void insertIntoDB() throws SQLException {
+        Connection conn = null;
+        PreparedStatement preparedStatement = null;
+
+        try{
+            //1.Connect to the DB
+            conn = DriverManager.getConnection("jdbc:hsqldb:file:C:\\Users\\Ogulcan\\Desktop\\ProjeFolderı\\","Rendall","RelmAdo239");
+            System.out.println("database connected");
+            //2. Create a String that holds the query with ? as inputs
+            String sql = "INSERT INTO Calisan(calisanAdi,calisanSoyadi,calisanLevel,calisanSertifikaTarihi) " +
+                    "VALUES (?,?,?,?)";
+
+            //3. Prepare the query
+            preparedStatement = conn.prepareStatement(sql);
+
+            //4. Convert the SertifikaTarihi into a SQL date
+            Date db = Date.valueOf(calisanSertifikaTarihi);
+
+            //5. Bind the values to the parameters
+            preparedStatement.setString(1, calisanAdi.toString());
+            preparedStatement.setString(2, calisanSoyadi.toString());
+            preparedStatement.setString(3, calisanLevel.toString());
+            preparedStatement.setDate(4,db);
+
+            preparedStatement.executeUpdate();
+        }
+        catch(Exception e){
+            System.err.println(e.getMessage());
+        }
+        finally {
+            if(preparedStatement!=null) preparedStatement.close();
+            if(conn!=null) conn.close();
+        }
+    }
 
 }
