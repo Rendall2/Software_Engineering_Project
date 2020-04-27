@@ -5,6 +5,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -12,32 +13,25 @@
 
 <AnchorPane prefHeight="450.0" prefWidth="750.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.EkipmanBilgileriController">
    <children>
-      <VBox layoutX="74.0" layoutY="101.0" prefHeight="298.0" prefWidth="629.0" spacing="20.0">
+      <VBox layoutX="45.0" layoutY="99.0" prefHeight="261.0" prefWidth="660.0" spacing="20.0">
          <children>
             <TableView fx:id="ekipmanTableView" prefHeight="200.0" prefWidth="667.0">
               <columns>
-                <TableColumn fx:id="ekipmanAdiTableColumn" onEditCommit="#changeEkipmanAdiCellEvent" prefWidth="127.99996566772461" text="Ekipman Adı" />
-                <TableColumn fx:id="kutupMesafesiTableColumn" onEditCommit="#changeKutupMesafesiCellEvent" prefWidth="96.80000305175781" text="Kutup Mesafesi" />
-                  <TableColumn fx:id="mpTasiyiciOrtamTableColumn" onEditCommit="#changeMPTasiyiciOrtamCellEvent" prefWidth="112.00006103515625" text="MP Taşıyıcı Ortam" />
-                  <TableColumn fx:id="miknatislamateknigiTableColumn" minWidth="0.0" onEditCommit="#changeMiknatislamaTeknigiCellEvent" prefWidth="109.60003662109375" text="Mıknatıslama Tek." />
-                  <TableColumn fx:id="uvIsikSiddetiTableColumn" onEditCommit="#changeUVIsikSiddetiCellEvent" prefWidth="85.60003662109375" text="UV Işık Şidetti" />
-                  <TableColumn fx:id="isikMesafesiTableColumn" onEditCommit="#changeIsikMesafesiCellEvent" prefWidth="94.39996337890625" text="Işık Mesafesi" />
+                  <TableColumn fx:id="ekipmanIDTableColumn" prefWidth="27.20001220703125" text="ID" />
+                <TableColumn fx:id="ekipmanAdiTableColumn" onEditCommit="#updateEkipmanAdi" prefWidth="135.19998168945312" text="Ekipman Adı" />
+                <TableColumn fx:id="kutupMesafesiTableColumn" onEditCommit="#updateKutupMesafesi" prefWidth="98.40003967285156" text="Kutup Mesafesi" />
+                  <TableColumn fx:id="mpTasiyiciOrtamTableColumn" onEditCommit="#updateMPTasiyiciOrtam" prefWidth="113.60003662109375" text="MP Taşıyıcı Ortam" />
+                  <TableColumn fx:id="miknatislamateknigiTableColumn" minWidth="0.0" onEditCommit="#updateMıknatislamaTeknigi" prefWidth="113.5999755859375" text="Mıknatıslama Tek." />
+                  <TableColumn fx:id="uvIsikSiddetiTableColumn" onEditCommit="#updateUVIsikSiddeti" prefWidth="88.0" text="UV Işık Şidetti" />
+                  <TableColumn fx:id="isikMesafesiTableColumn" minWidth="0.0" onEditCommit="#updateIsikMesafesi" prefWidth="80.0001220703125" text="Işık Mesafesi" />
               </columns>
             </TableView>
-            <HBox prefHeight="26.0" prefWidth="200.0" spacing="16.0">
+            <HBox prefHeight="26.0" prefWidth="200.0" spacing="26.0">
                <children>
                   <TextField fx:id="ekipmanAdiTextField" prefWidth="145.0" promptText="Ekipman Adı" />
                   <TextField fx:id="kutupMesafesiTextField" prefWidth="145.0" promptText="Kutup Mesafesi" />
                   <TextField fx:id="mpTasiyiciOrtamTextField" prefWidth="145.0" promptText="MP Taşıyıcı Ortam" />
                   <TextField fx:id="miknatislamaTeknigiTextField" prefWidth="145.0" promptText="Mıknatıslama Tekniği" />
-               </children>
-            </HBox>
-            <HBox prefHeight="26.0" prefWidth="200.0" spacing="16.0">
-               <children>
-                  <TextField fx:id="uvIsikSiddetiTextField" prefHeight="26.0" prefWidth="145.0" promptText="UV Işık Şiddeti" />
-                  <Button mnemonicParsing="false" onAction="#ekipmaniSil" prefWidth="145.0" text="Seçilen Ekipmanı Sil" />
-                  <Button mnemonicParsing="false" onAction="#ekipmanEkle" prefWidth="145.0" text="Yeni Ekipman Ekle" />
-                  <TextField fx:id="isikMesafesiTextField" prefHeight="26.0" prefWidth="145.0" promptText="Işık Mesafesi" />
                </children>
             </HBox>
          </children>
@@ -48,5 +42,13 @@
             <Font name="System Bold Italic" size="27.0" />
          </font>
       </Label>
+      <ToolBar layoutX="216.0" layoutY="356.0" prefHeight="19.0" prefWidth="318.0">
+         <items>
+            <Button mnemonicParsing="false" onAction="#ekipmanıSilButtonPushed" prefHeight="26.0" prefWidth="146.0" text="Seçilen Ekipmanı Sil" />
+            <Button mnemonicParsing="false" onAction="#ekipmanEkleButtonPushed" prefWidth="145.0" text="Yeni Ekipman Ekle" />
+         </items>
+      </ToolBar>
+      <TextField fx:id="isikMesafesiTextField" layoutX="45.0" layoutY="361.0" prefHeight="26.0" prefWidth="145.0" promptText="Işık Mesafesi" />
+      <TextField fx:id="uvIsikSiddetiTextField" layoutX="559.0" layoutY="361.0" prefHeight="26.0" prefWidth="145.0" promptText="UV Işık Şiddeti" />
    </children>
 </AnchorPane>

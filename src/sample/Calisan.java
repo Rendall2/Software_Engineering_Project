@@ -41,7 +41,7 @@ public class Calisan {
         else{
             throw new IllegalArgumentException("Calisan ID'si pozitif bir değer olmalıdır");
         }
-         }
+    }
 
     public void setCalisanAdi(String calisanAdi) { this.calisanAdi = calisanAdi; }
 
@@ -85,10 +85,6 @@ public class Calisan {
             if(preparedStatement!=null) preparedStatement.close();
             if(conn!=null) conn.close();
         }
-    }
-
-    public void updateCalisanAdi() throws  SQLException{
-
     }
 
 }

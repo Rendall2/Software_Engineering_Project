@@ -33,7 +33,6 @@ public class CalisanBilgileriController {
     @FXML private TextField soyadTextField;
     @FXML private TextField levelTextField;
     @FXML private DatePicker sertifikaTarihiDatePicker;
-    Controller controller;
 
     public void updateCalisanAdiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException{
         //SQL
@@ -56,7 +55,6 @@ public class CalisanBilgileriController {
             if(conn!=null) conn.close();
             if(statement!=null) statement.close();
         }
-
     }
 
     public void updateCalisanSoyadiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException{
@@ -80,7 +78,6 @@ public class CalisanBilgileriController {
             if(conn!=null) conn.close();
             if(statement!=null) statement.close();
         }
-
     }
 
     public void updateCalisanLevelCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException{
@@ -104,7 +101,6 @@ public class CalisanBilgileriController {
             if(conn!=null) conn.close();
             if(statement!=null) statement.close();
         }
-
     }
 
     public void updateCalisanSertifikaTarihi(TableColumn.CellEditEvent edittedCell) throws SQLException{
@@ -136,14 +132,6 @@ public class CalisanBilgileriController {
         }
 
     }
-    /*public void changeSertifikaTarihi(TableColumn.CellEditEvent edittedCell){
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-d");
-        Calisan personSelected = calisanTableView.getSelectionModel().getSelectedItem();
-        String date = edittedCell.getNewValue().toString();
-        System.out.println(date);
-        LocalDate localDate = LocalDate.parse(date, formatter);
-        personSelected.setCalisanSertifikaTarihi(localDate);
-    } */
 
    /* public ObservableList<Calisan> getCalisanlar(){
         ObservableList<Calisan> calisanlar = FXCollections.observableArrayList();
@@ -163,7 +151,7 @@ public class CalisanBilgileriController {
         window.show();
     }
 
-    public void calisanEkle(){
+    public void calisanEkleButtonPushed(){
         try {
             Calisan newCalisan = new Calisan(adTextField.getText(), soyadTextField.getText(),
                                             levelTextField.getText(),sertifikaTarihiDatePicker.getValue());
@@ -174,11 +162,10 @@ public class CalisanBilgileriController {
         catch (Exception e){
             System.err.println(e.getMessage());
         }
-
     }
 
-    //This method will delete the chosen Person(s)
-     public void calisanSil() throws SQLException{
+    //This method will delete the chosen Calisan
+     public void calisanSilButtonPushed() throws SQLException{
         Connection conn = null;
         PreparedStatement statement = null;
         ObservableList<Calisan> selectedRow, secilenCalisanlar;

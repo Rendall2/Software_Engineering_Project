@@ -5,22 +5,24 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="414.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MusteriBilgileriController">
+<AnchorPane prefHeight="409.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MusteriBilgileriController">
    <children>
-      <Button layoutX="14.0" layoutY="374.0" mnemonicParsing="false" onAction="#geriButtonPushed" text="Geri" />
+      <Button layoutX="14.0" layoutY="369.0" mnemonicParsing="false" onAction="#geriButtonPushed" text="Geri" />
       <VBox layoutX="81.0" layoutY="94.0" prefHeight="258.0" prefWidth="458.0" spacing="15.0">
          <children>
             <TableView fx:id="musteriTableView" prefHeight="173.0" prefWidth="416.0">
               <columns>
-                <TableColumn fx:id="musteriAdiTableColumn" onEditCommit="#changeMusteriAdiCellEvent" prefWidth="139.20001983642578" text="Müşteri Adı" />
-                <TableColumn fx:id="testYeriTableColumn" onEditCommit="#changeTestYeriCellEvent" prefWidth="137.5999755859375" text="Test Yeri" />
-                  <TableColumn fx:id="isEmriNoTableColumn" onEditCommit="#changeIsEmriCellEvent" prefWidth="88.79998779296875" text="İş Emri No." />
-                  <TableColumn fx:id="teklifNoTableColumn" onEditCommit="#changeTeklifNoCellEvent" prefWidth="91.20001831054685" text="Teklif No." />
+                  <TableColumn fx:id="musteriIDTableColumn" prefWidth="27.0" text="ID" />
+                <TableColumn fx:id="musteriAdiTableColumn" onEditCommit="#updateMusteriAdiCellEvent" prefWidth="144.0" text="Müşteri Adı" />
+                <TableColumn fx:id="testYeriTableColumn" onEditCommit="#updateTestYeri" prefWidth="109.60005187988281" text="Test Yeri" />
+                  <TableColumn fx:id="isEmriNoTableColumn" onEditCommit="#updateIsEmriNo" prefWidth="90.0" text="İş Emri No." />
+                  <TableColumn fx:id="teklifNoTableColumn" onEditCommit="#updateTeklifNo" prefWidth="85.5999816894531" text="Teklif No." />
               </columns>
             </TableView>
             <HBox prefHeight="32.0" prefWidth="422.0" spacing="20.0">
@@ -33,16 +35,16 @@
             </HBox>
             <HBox prefHeight="34.0" prefWidth="394.0">
                <children>
-                  <VBox prefHeight="200.0" prefWidth="100.0">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#müsteriSil" text="Müşteri Sil" />
-                     </children>
-                  </VBox>
-                  <VBox alignment="TOP_RIGHT" prefHeight="30.0" prefWidth="360.0">
-                     <children>
-                        <Button mnemonicParsing="false" onAction="#musteriEkle" prefHeight="26.0" prefWidth="91.0" text="Müşteri Ekle" />
-                     </children>
-                  </VBox>
+                  <ToolBar prefHeight="37.0" prefWidth="459.0">
+                     <items>
+                        <VBox prefHeight="0.0" prefWidth="316.0">
+                           <children>
+                              <Button mnemonicParsing="false" onAction="#musteriSilButtonPushed" prefWidth="125.0" text="Seçilen Müşteriyi Sil" />
+                           </children>
+                        </VBox>
+                        <Button mnemonicParsing="false" onAction="#musteriEkleButtonPushed" prefHeight="26.0" prefWidth="125.0" text="Müşteri Ekle" />
+                     </items>
+                  </ToolBar>
                </children>
             </HBox>
          </children>

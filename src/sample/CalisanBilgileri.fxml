@@ -40,10 +40,10 @@
                <items>
                   <HBox prefHeight="26.0" prefWidth="386.0">
                      <children>
-                        <Button minWidth="125.0" mnemonicParsing="false" onAction="#calisanSil" prefHeight="26.0" prefWidth="123.0" text="Seçilen Çalışanı Sil" />
+                        <Button minWidth="125.0" mnemonicParsing="false" onAction="#calisanSilButtonPushed" prefHeight="26.0" prefWidth="123.0" text="Seçilen Çalışanı Sil" />
                      </children>
                   </HBox>
-                  <Button minWidth="125.0" mnemonicParsing="false" onAction="#calisanEkle" text="Yeni Çalışan Ekle" />
+                  <Button minWidth="125.0" mnemonicParsing="false" onAction="#calisanEkleButtonPushed" text="Yeni Çalışan Ekle" />
                </items>
             </ToolBar>
          </children>
