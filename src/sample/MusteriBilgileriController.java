@@ -62,7 +62,7 @@ public class MusteriBilgileriController {
         PreparedStatement statement = null;
         //TableView
         Musteri selectedMusteri = musteriTableView.getSelectionModel().getSelectedItem();
-        String sql = "UPDATE Musteri SET MusteriTestYeri=? WHERE musteriID=?";
+        String sql = "UPDATE Musteri SET TestYeri=? WHERE musteriID=?";
         selectedMusteri.setTestYeri(edittedCell.getNewValue().toString());
         try {
             statement = conn.prepareStatement(sql);
@@ -84,7 +84,7 @@ public class MusteriBilgileriController {
         PreparedStatement statement = null;
         //TableView
         Musteri selectedMusteri = musteriTableView.getSelectionModel().getSelectedItem();
-        String sql = "UPDATE Musteri SET MusteriIsEmriNo=? WHERE musteriID=?";
+        String sql = "UPDATE Musteri SET IsEmriNo=? WHERE musteriID=?";
         selectedMusteri.setIsEmriNo(edittedCell.getNewValue().toString());
         try {
             statement = conn.prepareStatement(sql);
@@ -107,7 +107,7 @@ public class MusteriBilgileriController {
         PreparedStatement statement = null;
         //TableView
         Musteri selectedMusteri = musteriTableView.getSelectionModel().getSelectedItem();
-        String sql = "UPDATE Musteri SET MusteriTeklifNo=? WHERE musteriID=?";
+        String sql = "UPDATE Musteri SET TeklifNo=? WHERE musteriID=?";
         selectedMusteri.setTeklifNo(edittedCell.getNewValue().toString());
         try {
             statement = conn.prepareStatement(sql);

@@ -62,7 +62,7 @@ public class Calisan {
             conn = Database.getConnenction();
             //2. Create a String that holds the query with ? as inputs
             String sql = "INSERT INTO Calisan(calisanAdi,calisanSoyadi,calisanLevel,calisanSertifikaTarihi) " +
-                         "VALUES (?,?,?,?)";
+                    "VALUES (?,?,?,?)";
 
             //3. Prepare the query
             preparedStatement = conn.prepareStatement(sql);

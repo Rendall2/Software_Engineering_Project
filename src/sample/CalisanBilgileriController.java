@@ -136,7 +136,6 @@ public class CalisanBilgileriController {
    /* public ObservableList<Calisan> getCalisanlar(){
         ObservableList<Calisan> calisanlar = FXCollections.observableArrayList();
         calisanlar.add(new Calisan("Duygu","Ezengin","ÜÜÜÜÜÜÜÇÇÇÇÇ",LocalDate.of(2019, Month.AUGUST,14)));
-
         return calisanlar;
     } */
 
@@ -154,7 +153,7 @@ public class CalisanBilgileriController {
     public void calisanEkleButtonPushed(){
         try {
             Calisan newCalisan = new Calisan(adTextField.getText(), soyadTextField.getText(),
-                                            levelTextField.getText(),sertifikaTarihiDatePicker.getValue());
+                    levelTextField.getText(),sertifikaTarihiDatePicker.getValue());
             //Get all the items from the table as a list, then add the new Person
             newCalisan.insertIntoDB();
             calisanTableView.getItems().add(newCalisan);
@@ -165,7 +164,7 @@ public class CalisanBilgileriController {
     }
 
     //This method will delete the chosen Calisan
-     public void calisanSilButtonPushed() throws SQLException{
+    public void calisanSilButtonPushed() throws SQLException{
         Connection conn = null;
         PreparedStatement statement = null;
         ObservableList<Calisan> selectedRow, secilenCalisanlar;
@@ -234,9 +233,9 @@ public class CalisanBilgileriController {
             //4. Create calisan objects from each record
             while(resultSet.next()){
                 Calisan newCalisan = new Calisan(resultSet.getString("calisanAdi"),
-                                                resultSet.getString("calisanSoyadi"),
-                                                resultSet.getString("calisanLevel"),
-                                                resultSet.getDate("calisanSertifikaTarihi").toLocalDate());
+                        resultSet.getString("calisanSoyadi"),
+                        resultSet.getString("calisanLevel"),
+                        resultSet.getDate("calisanSertifikaTarihi").toLocalDate());
                 newCalisan.setCalisanID(resultSet.getInt("calisanID"));
                 calisanlar.add(newCalisan);
             }

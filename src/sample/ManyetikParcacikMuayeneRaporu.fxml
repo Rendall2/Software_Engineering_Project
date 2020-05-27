@@ -19,9 +19,9 @@
    <content>
       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1900.0" prefWidth="941.0">
          <children>
-            <VBox layoutX="177.0" prefHeight="53.0" prefWidth="750.0" style="-fx-border-style: solid;">
+            <VBox layoutX="177.0" layoutY="-5.0" prefHeight="59.0" prefWidth="750.0" style="-fx-border-style: solid;">
                <children>
-                  <Label alignment="CENTER" prefHeight="53.0" prefWidth="750.0" style="-fx-background-color: #ffcccc;" text="GÖZETİM MUAYENE VE EĞİTİM HİZMETLERİ" textFill="#ff3333">
+                  <Label alignment="CENTER" prefHeight="60.0" prefWidth="750.0" style="-fx-background-color: #ffcccc;" text="GÖZETİM MUAYENE VE EĞİTİM HİZMETLERİ" textFill="#ff3333">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
@@ -2312,7 +2312,7 @@
                   </HBox>
                </children>
             </VBox>
-            <Button layoutX="414.0" layoutY="1831.0" mnemonicParsing="false" text="Excele aktar">
+            <Button layoutX="18.0" layoutY="36.0" mnemonicParsing="false" onAction="#exceleAktarButtonPushed" text="Excele aktar">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
