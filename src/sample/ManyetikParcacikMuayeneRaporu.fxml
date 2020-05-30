@@ -1000,7 +1000,7 @@
                               </HBox>
                               <HBox prefHeight="36.0" prefWidth="549.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <VBox alignment="BOTTOM_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
+                                    <VBox alignment="BOTTOM_CENTER" prefHeight="36.0" prefWidth="100.0" style="-fx-border-style: solid;">
                                        <children>
                                           <Label alignment="BOTTOM_CENTER" prefHeight="33.0" prefWidth="98.0" style="-fx-background-color: #ffcccc;" text="BM">
                                              <font>
