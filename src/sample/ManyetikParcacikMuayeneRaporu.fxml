@@ -152,27 +152,27 @@
                         </VBox>
                         <VBox prefHeight="263.0" prefWidth="230.0" style="-fx-border-style: solid;">
                            <children>
-                              <ChoiceBox prefHeight="52.0" prefWidth="230.0" style="-fx-border-style: solid;" />
-                              <ChoiceBox prefHeight="52.0" prefWidth="229.0" style="-fx-border-style: solid;" />
-                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                              <ChoiceBox fx:id="musteriChoiceBox" prefHeight="53.0" prefWidth="230.0" style="-fx-border-style: solid;" />
+                              <ChoiceBox fx:id="projeAdiChoiceBox" prefHeight="52.0" prefWidth="229.0" style="-fx-border-style: solid;" />
+                              <TextField fx:id="testYeriTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <padding>
                                     <Insets left="2.0" />
                                  </padding>
                               </TextField>
-                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="muayeneStandartıTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;" text="TS EN ISO 17638">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <padding>
                                     <Insets left="2.0" />
                                  </padding>
                               </TextField>
-                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="değerlendirenStandartıTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;" text="TS EN ISO 23278 CLASS B">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <padding>
                                     <Insets left="2.0" />
@@ -289,32 +289,32 @@
                         </VBox>
                         <VBox prefHeight="263.0" prefWidth="124.0">
                            <children>
-                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="muayeneProsedürüTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;" text="P-101-004">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <padding>
                                     <Insets left="2.0" />
                                  </padding>
                               </TextField>
-                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="muayeneKapsamıTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;" text="100">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <padding>
                                     <Insets left="2.0" />
                                  </padding>
                               </TextField>
-                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="resimNoTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;" text="-">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <padding>
                                     <Insets left="2.0" />
                                  </padding>
                               </TextField>
-                              <ChoiceBox prefHeight="52.5" prefWidth="150.0" style="-fx-border-style: solid;" />
-                              <ChoiceBox prefHeight="52.5" prefWidth="150.0" style="-fx-border-style: solid;" />
+                              <ChoiceBox fx:id="yuzeyDurumuChoiceBox" prefHeight="52.5" prefWidth="150.0" style="-fx-border-style: solid;" />
+                              <ChoiceBox fx:id="muayeneAsamasiChoiceBox" prefHeight="52.5" prefWidth="150.0" style="-fx-border-style: solid;" />
                            </children>
                         </VBox>
                         <VBox prefHeight="263.0" prefWidth="151.0" style="-fx-border-style: solid;">
@@ -426,32 +426,32 @@
                         </VBox>
                         <VBox prefHeight="263.0" prefWidth="122.0">
                            <children>
-                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="sayfaNoTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;" text="1">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <padding>
                                     <Insets left="2.0" />
                                  </padding>
                               </TextField>
-                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="raporNoTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;" text="2019101621">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <padding>
                                     <Insets left="2.0" />
                                  </padding>
                               </TextField>
-                              <TextField prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="raporTarihiTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <padding>
                                     <Insets left="2.0" />
                                  </padding>
                               </TextField>
-                              <ChoiceBox prefHeight="52.5" prefWidth="150.0" style="-fx-border-style: solid;" />
-                              <ChoiceBox prefHeight="52.5" prefWidth="150.0" style="-fx-border-style: solid;" />
+                              <ChoiceBox fx:id="isEmriNoChoiceBox" prefHeight="52.5" prefWidth="150.0" style="-fx-border-style: solid;" />
+                              <ChoiceBox fx:id="teklifNoChoiceBox" prefHeight="52.5" prefWidth="150.0" style="-fx-border-style: solid;" />
                            </children>
                         </VBox>
                      </children>
@@ -598,49 +598,49 @@
                         </VBox>
                         <VBox prefHeight="315.0" prefWidth="125.0">
                            <children>
-                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="kutupMesafesiTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <padding>
                                     <Insets left="2.0" />
                                  </padding>
                               </TextField>
-                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="cihazTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <padding>
                                     <Insets left="2.0" />
                                  </padding>
                               </TextField>
-                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="mpTasiyiciOrtamTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <padding>
                                     <Insets left="2.0" />
                                  </padding>
                               </TextField>
-                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="miknatislamaTeknigiTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <padding>
                                     <Insets left="2.0" />
                                  </padding>
                               </TextField>
-                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="uvIsikSiddetiTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <padding>
                                     <Insets left="2.0" />
                                  </padding>
                               </TextField>
-                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="isikMesafesiTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                                  <padding>
                                     <Insets left="2.0" />
@@ -774,30 +774,30 @@
                         </VBox>
                         <VBox prefHeight="315.0" prefWidth="202.0">
                            <children>
-                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="muayeneBolgesiTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;" text="KAYNAK + HAZ">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                               </TextField>
-                              <ChoiceBox prefHeight="53.0" prefWidth="220.0" style="-fx-border-style: solid;" />
-                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                              <ChoiceBox fx:id="akimTipiChoiceBox" prefHeight="53.0" prefWidth="220.0" style="-fx-border-style: solid;" />
+                              <TextField fx:id="luxmetreTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;" text="1200 LUX">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                               </TextField>
-                              <TextField alignment="CENTER" layoutX="10.0" layoutY="116.0" prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="muayeneOrtamiTextField" alignment="CENTER" layoutX="10.0" layoutY="116.0" prefHeight="52.5" style="-fx-border-style: solid;">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                               </TextField>
-                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="miknatisGiderimiTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                               </TextField>
-                              <TextField alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
+                              <TextField fx:id="isilIslemTextField" alignment="CENTER" prefHeight="52.5" style="-fx-border-style: solid;">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                               </TextField>
                            </children>
@@ -911,21 +911,25 @@
                         </VBox>
                         <VBox prefHeight="315.0" prefWidth="146.0">
                            <children>
-                              <Spinner prefHeight="52.5" prefWidth="146.0" />
-                              <ChoiceBox prefHeight="105.0" prefWidth="220.0" style="-fx-border-style: solid;" />
-                              <TextField alignment="CENTER" prefHeight="52.0" prefWidth="141.0" style="-fx-border-style: solid;">
+                              <Spinner fx:id="yuzeySicakligiSpinner" prefHeight="53.5" prefWidth="146.0" />
+                              <TextField fx:id="muayeneBolgesindekiAlanSiddetiTextfield" alignment="CENTER" prefHeight="104.0" prefWidth="100.0" text="3.2 kA/m">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                               </TextField>
-                              <TextField alignment="CENTER" layoutX="10.0" layoutY="168.0" prefHeight="52.0" prefWidth="141.0" style="-fx-border-style: solid;">
+                              <TextField fx:id="yuzeyTextField" alignment="CENTER" prefHeight="52.5" prefWidth="141.0" style="-fx-border-style: solid;" text="TAŞLANMIŞ/GRINDING">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                               </TextField>
-                              <TextField alignment="CENTER" layoutX="10.0" layoutY="168.0" prefHeight="52.0" prefWidth="141.0" style="-fx-border-style: solid;">
+                              <TextField fx:id="isikCihaziTanimiTextField" alignment="CENTER" layoutX="10.0" layoutY="168.0" prefHeight="52.0" prefWidth="141.0" style="-fx-border-style: solid;" text="***">
                                  <font>
-                                    <Font size="11.0" />
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </TextField>
+                              <TextField fx:id="kaldirmaTestiTarihiTextField" alignment="CENTER" layoutX="10.0" layoutY="168.0" prefHeight="52.0" prefWidth="141.0" style="-fx-border-style: solid;">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
                                  </font>
                               </TextField>
                            </children>
@@ -1158,7 +1162,10 @@
                                     </Label>
                                  </children>
                               </VBox>
-                              <TextField prefHeight="52.0" prefWidth="738.0" />
+                              <TextField prefHeight="52.0" prefWidth="738.0" text="Standarttan sapma yoktur.">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font></TextField>
                            </children>
                         </HBox>
                         <HBox layoutX="10.0" layoutY="10.0" prefHeight="53.0" prefWidth="942.0" style="-fx-border-style: solid;">
@@ -1278,7 +1285,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <Label alignment="BOTTOM_CENTER" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #ffcccc;" text="Kaynak Yön">
+                                    <Label alignment="BOTTOM_CENTER" prefHeight="34.0" prefWidth="130.0" style="-fx-background-color: #ffcccc;" text="Kaynak Yön.">
                                        <font>
                                           <Font name="System Bold" size="11.0" />
                                        </font>
@@ -1374,7 +1381,7 @@
                                  </children></VBox>
                               <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kaynakParcaNoTextfield1" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1382,7 +1389,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kontrolUzunTextfield1" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1390,7 +1397,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kaynakYonTextField1" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1398,7 +1405,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kalinlikTextField1" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1406,7 +1413,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="capTextField1" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1414,7 +1421,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="hataTipiTextField1" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1422,7 +1429,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="hataninYeriTextField1" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1430,7 +1437,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                    <ChoiceBox fx:id="sonucChoiceBox1" prefHeight="39.0" prefWidth="66.0" />
                                  </children>
                               </VBox>
                            </children>
@@ -1448,7 +1455,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kaynakParcaNoTextfield2" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1456,7 +1463,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kontrolUzunTextField2" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1464,7 +1471,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kaynakYonTextField2" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1472,7 +1479,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kalinlikTextField2" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1480,7 +1487,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="capTextField2" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1488,7 +1495,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="hataTipiTextField2" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1496,7 +1503,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="hataninYeriTextField2" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1504,7 +1511,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                    <ChoiceBox fx:id="sonucChoiceBox2" prefHeight="39.0" prefWidth="66.0" />
                                  </children>
                               </VBox>
                            </children>
@@ -1522,7 +1529,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kaynakParcaNoTextfield3" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1530,7 +1537,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kontrolUzunTextField3" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1538,7 +1545,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kaynakYonTextField3" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1546,7 +1553,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kalinlikTextField3" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1554,7 +1561,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="capTextField3" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1562,7 +1569,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="hataTipiTextField3" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1570,7 +1577,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="hataninYeriTextField3" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1578,7 +1585,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                    <ChoiceBox fx:id="sonucChoiceBox3" prefHeight="39.0" prefWidth="66.0" />
                                  </children>
                               </VBox>
                            </children>
@@ -1596,7 +1603,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kaynakParcaNoTextfield4" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1604,7 +1611,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kontrolUzunTextField4" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1612,7 +1619,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kaynakYonTextField4" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1620,7 +1627,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kalinlikTextField4" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1628,7 +1635,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="capTextField4" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1636,7 +1643,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="hataTipiTextField4" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1644,7 +1651,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="hataninYeriTextField4" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1652,7 +1659,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                    <ChoiceBox fx:id="sonucChoiceBox4" prefHeight="39.0" prefWidth="66.0" />
                                  </children>
                               </VBox>
                            </children>
@@ -1670,7 +1677,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kaynakParcaNoTextfield5" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1678,7 +1685,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kontrolUzunTextField5" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1686,7 +1693,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kaynakYonTextField5" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1694,7 +1701,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kalinlikTextField5" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1702,7 +1709,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="capTextField5" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1710,7 +1717,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="hataTipiTextField5" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1718,7 +1725,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="hataninYeriTextField5" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1726,7 +1733,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                    <ChoiceBox fx:id="sonucChoiceBox5" prefHeight="39.0" prefWidth="66.0" />
                                  </children>
                               </VBox>
                            </children>
@@ -1744,7 +1751,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kaynakParcaNoTextfield6" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1752,7 +1759,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="94.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kontrolUzunTextField6" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1760,7 +1767,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="131.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kaynakYonTextField6" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1768,7 +1775,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="310.0" layoutY="10.0" prefHeight="62.0" prefWidth="93.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kalinlikTextField6" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1776,7 +1783,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="110.0" layoutY="10.0" prefHeight="62.0" prefWidth="111.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="capTextField6" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1784,7 +1791,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="410.0" layoutY="10.0" prefHeight="200.0" prefWidth="100.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="hataTipiTextField6" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1792,7 +1799,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="210.0" layoutY="10.0" prefHeight="62.0" prefWidth="116.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="hataninYeriTextField6" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1800,7 +1807,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                    <ChoiceBox fx:id="sonucChoiceBox6" prefHeight="39.0" prefWidth="66.0" />
                                  </children>
                               </VBox>
                            </children>
@@ -1818,7 +1825,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="62.0" prefWidth="158.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
+                                    <TextField fx:id="kaynakParcaNoTextfield7" alignment="CENTER" prefHeight="40.0" prefWidth="157.0">
                                        <font>
                                           <Font size="11.0" />
                                        </font></TextField>
@@ -1874,7 +1881,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                    <ChoiceBox fx:id="sonucChoiceBox7" prefHeight="39.0" prefWidth="66.0" />
                                  </children>
                               </VBox>
                            </children>
@@ -1948,7 +1955,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                    <ChoiceBox fx:id="sonucChoiceBox8" prefHeight="39.0" prefWidth="66.0" />
                                  </children>
                               </VBox>
                            </children>
@@ -2022,7 +2029,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                    <ChoiceBox fx:id="sonucChoiceBox9" prefHeight="39.0" prefWidth="66.0" />
                                  </children>
                               </VBox>
                            </children>
@@ -2096,7 +2103,7 @@
                               </VBox>
                               <VBox alignment="CENTER" layoutX="510.0" layoutY="10.0" prefHeight="62.0" prefWidth="66.0" style="-fx-border-style: solid;">
                                  <children>
-                                    <ChoiceBox prefHeight="39.0" prefWidth="66.0" />
+                                    <ChoiceBox fx:id="sonucChoiceBox10" prefHeight="39.0" prefWidth="66.0" />
                                  </children>
                               </VBox>
                            </children>
