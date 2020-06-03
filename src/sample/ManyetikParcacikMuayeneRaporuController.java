@@ -10,10 +10,13 @@ import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.util.CellRangeAddress;
 import org.apache.poi.ss.util.CellUtil;
+import org.apache.poi.util.IOUtils;
 
 
-
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.sql.*;
 import java.util.Optional;
 
 import static org.apache.poi.ss.usermodel.HorizontalAlignment.CENTER;
@@ -149,25 +152,119 @@ public class ManyetikParcacikMuayeneRaporuController {
 
     @FXML Spinner yuzeySicakligiSpinner;
 
+    @FXML CheckBox alinKaynagiCheckbox;
+    @FXML CheckBox koseKaynagiCheckbox;
 
+    @FXML Label musteriAdiLabel;
+    @FXML Label operatorAdiLabel;
+    @FXML Label operatorLevelLabel;
+    @FXML Label degerlendirenAdiLabel;
+    @FXML Label degerlendirenLevelLabel;
+    @FXML Label onaylayanAdiLabel;
+    @FXML Label onaylayanLevelLabel;
 
-    Workbook workbook = Excel.createExcelDocument("test.xls");
-    Sheet rapor = workbook.getSheet("Rapor");
+    public String operatorAdi,operatorSoyadi, onaylayanAdi, onaylayanSoyadi, degerlendirenAdi, degerlendirenSoyadi;
 
     public void exceleAktarButtonPushed(ActionEvent event) throws  Exception {
 
         int muayeneKapsamiInt = Integer.parseInt(muayeneKapsamıTextField.getText());
 
-        if(muayeneKapsamiInt > 100 || 0 > muayeneKapsamiInt ||
-                !(muayeneKapsamıTextField.getText().length()==1 || muayeneKapsamıTextField.getText().length() == 2 || muayeneKapsamıTextField.getText().length() == 3)){
-            Alert alert = new Alert(Alert.AlertType.WARNING,
-                    "Lütfen muayene kapsamı için 1'den 100'e kadar bir değer giriniz.\nGirilen değer: " + muayeneKapsamıTextField.getText(),
-                    ButtonType.CLOSE);
-
-            alert.showAndWait();
+        if (muayeneKapsamiInt > 100 || 0 > muayeneKapsamiInt ||
+                !(muayeneKapsamıTextField.getText().length() == 1 || muayeneKapsamıTextField.getText().length() == 2 || muayeneKapsamıTextField.getText().length() == 3)) {
+            AlertBox.createAlertBox("Lütfen muayene kapsamı için 1'den 100'e kadar bir değer giriniz.\nGirilen değer: " + muayeneKapsamıTextField.getText());
         }
 
         else {
+            Workbook workbook = Excel.createExcelDocument("test.xls");
+            Sheet rapor = workbook.getSheet("Rapor");
+
+            //Insterting the images
+
+            InputStream inputStream1 = new FileInputStream("C:\\Users\\Ogulcan\\IdeaProjects\\Software Engineering Project\\src\\Alin Kaynagi Excel.png");
+            InputStream inputStream2 = new FileInputStream("C:\\Users\\Ogulcan\\IdeaProjects\\Software Engineering Project\\src\\Kose Kaynagi Excel.png");
+            InputStream inputStream3 = new FileInputStream("C:\\Users\\Ogulcan\\IdeaProjects\\Software Engineering Project\\src\\checked checkbox.png");
+            InputStream inputStream4 = new FileInputStream("C:\\Users\\Ogulcan\\IdeaProjects\\Software Engineering Project\\src\\unchecked checkbox.png");
+                 //Get the contents of an InputStream as a byte[]
+            byte[] bytes1 = IOUtils.toByteArray(inputStream1);
+            byte[] bytes2 = IOUtils.toByteArray(inputStream2);
+            byte[] bytes3 = IOUtils.toByteArray(inputStream3);
+            byte[] bytes4 = IOUtils.toByteArray(inputStream4);
+                //Adds a picture to the workbook
+            int pictureIdx1 = workbook.addPicture(bytes1, Workbook.PICTURE_TYPE_PNG);
+            int pictureIdx2 = workbook.addPicture(bytes2, Workbook.PICTURE_TYPE_PNG);
+                //close the input stream
+            inputStream1.close();
+            inputStream2.close();
+            inputStream3.close();
+            inputStream4.close();
+
+                //Creates the top-level drawing patriarch.
+            Drawing drawing1 = rapor.createDrawingPatriarch();
+            Drawing drawing2 = rapor.createDrawingPatriarch();
+            Drawing drawing3 = rapor.createDrawingPatriarch();
+            Drawing drawing4 = rapor.createDrawingPatriarch();
+
+
+            //Create an anchor that is attached to the worksheet
+            ClientAnchor anchor1 = workbook.getCreationHelper().createClientAnchor();
+            ClientAnchor anchor2 = workbook.getCreationHelper().createClientAnchor();
+            ClientAnchor anchor3 = workbook.getCreationHelper().createClientAnchor();
+            ClientAnchor anchor4 = workbook.getCreationHelper().createClientAnchor();
+
+                //Setting the image's location
+            anchor1.setCol1(0);
+            anchor1.setRow1(15);
+
+            anchor2.setCol1(6);
+            anchor2.setRow1(15);
+
+            anchor3.setCol1(4);
+            anchor3.setRow1(18);
+
+            anchor4.setCol1(9);
+            anchor4.setRow1(18);
+
+                //Creates a picture
+            Picture pict1 = drawing1.createPicture(anchor1, pictureIdx1);
+            Picture pict2 = drawing2.createPicture(anchor2, pictureIdx2);
+
+                //Reset the image to the original size
+            pict1.resize(4.5,3.4);
+            pict2.resize(3.8,3.5);
+
+            if(alinKaynagiCheckbox.isSelected() && !(koseKaynagiCheckbox.isSelected())){
+                int pictureIdx3 = workbook.addPicture(bytes3, Workbook.PICTURE_TYPE_PNG);
+                int pictureIdx4 = workbook.addPicture(bytes4, Workbook.PICTURE_TYPE_PNG);
+                Picture pict3 = drawing3.createPicture(anchor3, pictureIdx3);
+                Picture pict4 = drawing4.createPicture(anchor4, pictureIdx4);
+                pict3.resize(0.6,0.6);
+                pict4.resize(0.37,0.6);
+            }
+            else if(alinKaynagiCheckbox.isSelected() && koseKaynagiCheckbox.isSelected()){
+                int pictureIdx3 = workbook.addPicture(bytes3, Workbook.PICTURE_TYPE_PNG);
+                Picture pict3 = drawing3.createPicture(anchor3, pictureIdx3);
+                Picture pict4 = drawing4.createPicture(anchor4, pictureIdx3);
+                pict3.resize(0.6,0.6);
+                pict4.resize(0.35,0.6);
+            }
+
+            else if(!(alinKaynagiCheckbox.isSelected()) && koseKaynagiCheckbox.isSelected()){
+                int pictureIdx3 = workbook.addPicture(bytes3, Workbook.PICTURE_TYPE_PNG);
+                int pictureIdx4 = workbook.addPicture(bytes4, Workbook.PICTURE_TYPE_PNG);
+                Picture pict3 = drawing3.createPicture(anchor3, pictureIdx4);
+                Picture pict4 = drawing4.createPicture(anchor4, pictureIdx3);
+                pict3.resize(0.6,0.6);
+                pict4.resize(0.35,0.6);
+            }
+
+            else if(!(alinKaynagiCheckbox.isSelected()) && !(koseKaynagiCheckbox.isSelected())){
+                int pictureIdx4 = workbook.addPicture(bytes4, Workbook.PICTURE_TYPE_PNG);
+                Picture pict3 = drawing3.createPicture(anchor3, pictureIdx4);
+                Picture pict4 = drawing4.createPicture(anchor4, pictureIdx4);
+                pict3.resize(0.6,0.6);
+                pict4.resize(0.37,0.6);
+            }
+
             //Initializing of the cell styles
             CellStyle cellStyle1 = workbook.createCellStyle();
             CellStyle cellStyle2 = workbook.createCellStyle();
@@ -831,9 +928,9 @@ public class ManyetikParcacikMuayeneRaporuController {
             }
 
             //Printing entered values to excel file
-                //Row1
+            //Row1  //(String) getselection.getselecteditem
             CellUtil.createCell(row1_1, 2, musteriChoiceBox.getValue().toString());
-            CellUtil.createCell(row1_2, 2, projeAdiChoiceBox.getValue().toString());
+//            CellUtil.createCell(row1_2, 2, projeAdiChoiceBox.getValue().toString());
             CellUtil.createCell(row1_3, 2, testYeriTextField.getText());
             CellUtil.createCell(row1_4, 2, muayeneStandartıTextField.getText());
             CellUtil.createCell(row1_5, 2, değerlendirenStandartıTextField.getText());
@@ -841,8 +938,8 @@ public class ManyetikParcacikMuayeneRaporuController {
             CellUtil.createCell(row1_1, 13, muayeneProsedürüTextField.getText());
             CellUtil.createCell(row1_2, 13, muayeneKapsamıTextField.getText() + "%");
             CellUtil.createCell(row1_3, 13, resimNoTextField.getText());
-            CellUtil.createCell(row1_4, 13, yuzeyDurumuChoiceBox.getValue().toString());
-            CellUtil.createCell(row1_5, 13, muayeneAsamasiChoiceBox.getValue().toString());
+            //    CellUtil.createCell(row1_4, 13, yuzeyDurumuChoiceBox.getValue().toString());
+            //   CellUtil.createCell(row1_5, 13, muayeneAsamasiChoiceBox.getValue().toString());
 
             CellUtil.createCell(row1_1, 19, sayfaNoTextField.getText());
             CellUtil.createCell(row1_2, 19, raporNoTextField.getText());
@@ -850,7 +947,7 @@ public class ManyetikParcacikMuayeneRaporuController {
             CellUtil.createCell(row1_4, 19, isEmriNoChoiceBox.getValue().toString());
             CellUtil.createCell(row1_5, 19, teklifNoChoiceBox.getValue().toString());
 
-                //Row2
+            //Row2
             CellUtil.createCell(row2_1, 3, kutupMesafesiTextField.getText());
             CellUtil.createCell(row2_2, 3, cihazTextField.getText());
             CellUtil.createCell(row2_3, 3, mpTasiyiciOrtamTextField.getText());
@@ -871,27 +968,264 @@ public class ManyetikParcacikMuayeneRaporuController {
             CellUtil.createCell(row2_4, 18, isikCihaziTanimiTextField.getText());
             CellUtil.createCell(row2_5, 18, kaldirmaTestiTarihiTextField.getText());
 
-        }
 
+            try {
+                FileOutputStream output = new FileOutputStream("test.xls");
+                workbook.write(output);
+                output.close();
+                workbook.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
+    public void initialize() throws  SQLException{
+
+
+
+        akimTipiChoiceBox.getItems().addAll("AC","DC");
+
+        SpinnerValueFactory<Integer> yuzeySicakligiValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(-40,60,15);
+        yuzeySicakligiSpinner.setValueFactory(yuzeySicakligiValueFactory);
+        loadMusteri();
+
+
+    }
+
+    public void initMusteriData(String musteriAdi) throws SQLException{
+        Connection conn = null;
+        PreparedStatement statement1 = null;
+        ResultSet resultSet = null;
+        try {
+            conn = Database.getConnenction();
+
+            statement1 = conn.prepareStatement("SELECT*FROM Musteri WHERE musteriAdi = ?");
+            statement1.setString(1,musteriAdi);
+
+            resultSet = statement1.executeQuery();
+
+            resultSet.next();
+            Musteri musteri = new Musteri(resultSet.getString("MusteriAdi"),
+                    resultSet.getString("TestYeri"),
+                    resultSet.getString("IsEmriNo"),
+                    resultSet.getString("TeklifNo"));
+            musteriChoiceBox.setValue(musteri.getMusteriAdi());
+            testYeriTextField.setText(musteri.getTestYeri());
+            isEmriNoChoiceBox.setValue(musteri.getIsEmriNo());
+            teklifNoChoiceBox.setValue(musteri.getTeklifNo());
+            musteriAdiLabel.setText(musteri.getMusteriAdi());
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        finally {
+            if(conn!=null) { conn.close(); }
+            if(statement1!=null) { statement1.close(); }
+            if(resultSet!=null) { resultSet.close(); }
+
+        }
+    }
+
+    public void initEkipmanData(String ekipmanAdi) throws SQLException{
+        Connection conn = null;
+        PreparedStatement statement1 = null;
+        ResultSet resultSet = null;
+        try {
+            conn = Database.getConnenction();
+
+            statement1 = conn.prepareStatement("SELECT*FROM Ekipman WHERE ekipmanAdi = ?");
+            statement1.setString(1,ekipmanAdi);
+
+            resultSet = statement1.executeQuery();
+
+            resultSet.next();
+
+            Ekipman ekipman = new Ekipman(resultSet.getString("ekipmanAdi"),
+                    resultSet.getString("kutupMesafesi"),
+                    resultSet.getString("MPTasiyiciOrtam"),
+                    resultSet.getString("MıknatıslamaTeknigi"),
+                    resultSet.getString("UVIsikSiddeti"),
+                    resultSet.getString("IsikMesafesi"));
+
+            kutupMesafesiTextField.setText(ekipman.getKutupMesafesi());
+            cihazTextField.setText(ekipman.getEkipmanAdi());
+            mpTasiyiciOrtamTextField.setText(ekipman.getMPTasiyiciOrtam());
+            miknatislamaTeknigiTextField.setText(ekipman.getMıknatıslamaTeknigi());
+            uvIsikSiddetiTextField.setText(ekipman.getUVIsikSiddeti());
+            isikMesafesiTextField.setText(isikMesafesiTextField.getText());
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        finally {
+            if(conn!=null) { conn.close(); }
+            if(statement1!=null) { statement1.close(); }
+            if(resultSet!=null) { resultSet.close(); }
+
+        }
+    }
+
+    public void initOperatorData(String operator) throws  SQLException{
+        Connection conn = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        for(int i=0; i<operator.length(); i++){
+            if(operator.lastIndexOf(" ") == i){
+                operatorAdi = operator.substring(0,i);
+                operatorSoyadi = operator.substring(i+1,operator.length());
+            }
+        }
 
         try{
-            FileOutputStream output = new FileOutputStream("test.xls");
-            workbook.write(output);
-            output.close();
-            workbook.close();
-        }
-        catch(Exception e){
-            e.printStackTrace();
-        }
+            conn = Database.getConnenction();
 
+            statement = conn.prepareStatement("SELECT*FROM Calisan WHERE calisanAdi = ? AND calisanSoyadi = ?");
+            statement.setString(1,operatorAdi);
+            statement.setString(2,operatorSoyadi);
+
+            resultSet = statement.executeQuery();
+
+            resultSet.next();
+
+            Calisan newOperator = new Calisan(resultSet.getString("calisanAdi"),
+                    resultSet.getString("calisanSoyadi"),
+                    resultSet.getString("calisanLevel"),
+                    resultSet.getDate("calisanSertifikaTarihi").toLocalDate());
+
+            operatorAdiLabel.setText(newOperator.getCalisanAdi() + " " + newOperator.getCalisanSoyadi());
+            operatorLevelLabel.setText(newOperator.getCalisanLevel());
+        }
+        catch (Exception e){
+            e.getMessage();
+        }
+        finally {
+            if(conn!=null) conn.close();
+            if(statement!=null)  statement.close();
+            if(resultSet!=null)  resultSet.close();
+
+        }
     }
 
-    public void initialize() {
+    public void initDegerlendirenData(String degerlendiren) throws SQLException{
+        Connection conn = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
 
-        musteriChoiceBox.getItems().addAll("S","Bosch","Ogulcan","Şahin");
+        for(int i=0; i<degerlendiren.length(); i++){
+            if(degerlendiren.lastIndexOf(" ") == i){
+                degerlendirenAdi = degerlendiren.substring(0,i);
+                degerlendirenSoyadi = degerlendiren.substring(i+1,degerlendiren.length());
+            }
+        }
 
+        try{
+            conn = Database.getConnenction();
+
+            statement = conn.prepareStatement("SELECT*FROM Calisan WHERE calisanAdi = ? AND calisanSoyadi = ?");
+            statement.setString(1,degerlendirenAdi);
+            statement.setString(2,degerlendirenSoyadi);
+
+            resultSet = statement.executeQuery();
+
+            resultSet.next();
+
+            Calisan newDegerlendiren = new Calisan(resultSet.getString("calisanAdi"),
+                    resultSet.getString("calisanSoyadi"),
+                    resultSet.getString("calisanLevel"),
+                    resultSet.getDate("calisanSertifikaTarihi").toLocalDate());
+
+            degerlendirenAdiLabel.setText(newDegerlendiren.getCalisanAdi() + " " + newDegerlendiren.getCalisanSoyadi());
+            degerlendirenLevelLabel.setText(newDegerlendiren.getCalisanLevel());
+        }
+        catch (Exception e){
+            e.getMessage();
+        }
+        finally {
+            if(conn!=null) conn.close();
+            if(statement!=null)  statement.close();
+            if(resultSet!=null)  resultSet.close();
+        }
+    }
+
+    public void initOnaylayanData(String onaylayan) throws SQLException{
+        Connection conn = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+
+        for(int i=0; i<onaylayan.length(); i++){
+            if(onaylayan.lastIndexOf(" ") == i){
+                onaylayanAdi = onaylayan.substring(0,i);
+                onaylayanSoyadi = onaylayan.substring(i+1,onaylayan.length());
+            }
+        }
+
+        try{
+            conn = Database.getConnenction();
+
+            statement = conn.prepareStatement("SELECT*FROM Calisan WHERE calisanAdi = ? AND calisanSoyadi = ?");
+            statement.setString(1,onaylayanAdi);
+            statement.setString(2,onaylayanSoyadi);
+
+            resultSet = statement.executeQuery();
+
+            resultSet.next();
+
+            Calisan newOnaylayan = new Calisan(resultSet.getString("calisanAdi"),
+                    resultSet.getString("calisanSoyadi"),
+                    resultSet.getString("calisanLevel"),
+                    resultSet.getDate("calisanSertifikaTarihi").toLocalDate());
+
+
+            onaylayanAdiLabel.setText(newOnaylayan.getCalisanAdi() + " " + newOnaylayan.getCalisanSoyadi());
+            onaylayanLevelLabel.setText(newOnaylayan.getCalisanLevel());
+        }
+        catch (Exception e){
+            e.getMessage();
+        }
+        finally {
+            if(conn!=null) conn.close();
+            if(statement!=null)  statement.close();
+            if(resultSet!=null)  resultSet.close();
+
+        }
     }
 
 
+    public void loadMusteri() throws  SQLException {
+        Connection conn = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+        try {
+            conn = Database.getConnenction();
 
-}
+            statement = conn.createStatement();
+            resultSet = statement.executeQuery("SELECT*FROM Musteri");
+
+            while (resultSet.next()) {
+                Musteri newMusteri = new Musteri(resultSet.getString("MusteriAdi"),
+                        resultSet.getString("TestYeri"),
+                        resultSet.getString("IsEmriNo"),
+                        resultSet.getString("TeklifNo"));
+                newMusteri.setMusteriID(resultSet.getInt("musteriID"));
+                musteriChoiceBox.getItems().add(newMusteri.getMusteriAdi());
+                isEmriNoChoiceBox.getItems().add(newMusteri.getIsEmriNo());
+                teklifNoChoiceBox.getItems().add(newMusteri.getTeklifNo());
+            }
+
+        }
+        catch (Exception e){
+            System.err.println(e.getMessage());
+        }
+        finally {
+            if(conn!=null) { conn.close(); }
+            if(statement!=null) { statement.close(); }
+            if(resultSet!=null) { resultSet.close(); }
+
+        }
+    }
+   }
+

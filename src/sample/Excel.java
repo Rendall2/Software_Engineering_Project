@@ -31,16 +31,16 @@ public class Excel {
                                      Sheet sheet,
                                      CellStyle bottom, CellStyle bottomRight, CellStyle right){
 
-            for(;firstCellIndex < lastCellIndex; firstCellIndex++){
-                 sheet.getRow(lastRow).getCell(firstCellIndex).setCellStyle(bottom);
-            }
-            sheet.getRow(lastRow).getCell(lastCellIndex).setCellStyle(bottomRight);
-
-            if(firstRow!=lastRow) {
-                for(;firstRow < lastRow; firstRow++) {
-                    sheet.getRow(firstRow).getCell(lastCellIndex).setCellStyle(right);
+                for(;firstCellIndex < lastCellIndex; firstCellIndex++){
+                    sheet.getRow(lastRow).getCell(firstCellIndex).setCellStyle(bottom);
                 }
-            }
+                sheet.getRow(lastRow).getCell(lastCellIndex).setCellStyle(bottomRight);
+
+                if(firstRow!=lastRow) {
+                    for(;firstRow < lastRow; firstRow++) {
+                        sheet.getRow(firstRow).getCell(lastCellIndex).setCellStyle(right);
+                    }
+                }
         }
 
         public static void printWithDifferentFonts(Cell cell, Workbook workbook, Font turkishFont, Font englishFont){
