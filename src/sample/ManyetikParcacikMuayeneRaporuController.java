@@ -1,10 +1,21 @@
 package sample;
 
 
+import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
 import javafx.scene.control.*;
+import javafx.scene.image.WritableImage;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
+import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPage;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CellStyle;
@@ -13,9 +24,8 @@ import org.apache.poi.ss.util.CellUtil;
 import org.apache.poi.util.IOUtils;
 
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
+import javax.imageio.ImageIO;
+import java.io.*;
 import java.sql.*;
 import java.util.Optional;
 
@@ -70,6 +80,7 @@ public class ManyetikParcacikMuayeneRaporuController {
     @FXML TextField yuzeyTextField;
     @FXML TextField isikCihaziTanimiTextField;
     @FXML TextField kaldirmaTestiTarihiTextField;
+    @FXML TextField standarttanSapmalarTextField;
 
     @FXML TextField kaynakParcaNoTextfield1;
     @FXML TextField kaynakParcaNoTextfield2;
@@ -162,6 +173,10 @@ public class ManyetikParcacikMuayeneRaporuController {
     @FXML Label degerlendirenLevelLabel;
     @FXML Label onaylayanAdiLabel;
     @FXML Label onaylayanLevelLabel;
+
+    @FXML Button pdfButton;
+    @FXML AnchorPane raporAnchorPane;
+
 
     public String operatorAdi,operatorSoyadi, onaylayanAdi, onaylayanSoyadi, degerlendirenAdi, degerlendirenSoyadi;
 
@@ -968,6 +983,8 @@ public class ManyetikParcacikMuayeneRaporuController {
             CellUtil.createCell(row2_4, 18, isikCihaziTanimiTextField.getText());
             CellUtil.createCell(row2_5, 18, kaldirmaTestiTarihiTextField.getText());
 
+            CellUtil.createCell(row4_1, 3, standarttanSapmalarTextField.getText());
+
 
             try {
                 FileOutputStream output = new FileOutputStream("test.xls");
@@ -980,12 +997,58 @@ public class ManyetikParcacikMuayeneRaporuController {
         }
     }
 
+    public void scanButtonPushed(ActionEvent event) {
+        AnchorPane anchorPane = new AnchorPane();
+        anchorPane = raporAnchorPane;
+            try {
+                WritableImage nodeshot = anchorPane.snapshot(new SnapshotParameters(), null);
 
+                // store image in-memory
+                ByteArrayOutputStream output = new ByteArrayOutputStream();
+                ImageIO.write(SwingFXUtils.fromFXImage(nodeshot, null), "png", output);
+                output.close();
+
+                PDDocument doc = new PDDocument();
+                PDPage page = new PDPage();
+                PDImageXObject pdimage;
+                PDPageContentStream content;
+
+                pdimage = PDImageXObject.createFromByteArray(doc, output.toByteArray(), "png");
+                content = new PDPageContentStream(doc, page);
+
+                // fit image to media box of page
+                PDRectangle box = page.getMediaBox();
+                double factor = Math.min(box.getWidth() / nodeshot.getWidth(), box.getHeight() / nodeshot.getHeight());
+
+                float height = (float) (nodeshot.getHeight() * factor);
+
+                System.out.println(box.getHeight() - height);
+                System.out.println((float)(nodeshot.getWidth() * factor));
+                System.out.println(height);
+                // beware of inverted y axis here
+                content.drawImage(pdimage, 0, (float) -75, (float) 623, 870);
+
+                content.close();
+                doc.addPage(page);
+
+                File outputFile = new File("C:\\Users\\Ogulcan\\IdeaProjects\\Software Engineering Project\\PDF.pdf");
+
+                doc.save(outputFile);
+                doc.close();
+
+
+            } catch (Exception e) {
+                e.getMessage();
+            }
+
+    }
 
     public void initialize() throws  SQLException{
 
 
-
+        projeAdiChoiceBox.getItems().addAll("KAYNAKÇI TESTİ");
+        yuzeyDurumuChoiceBox.getItems().addAll("AFTER WELDING");
+        muayeneAsamasiChoiceBox.getItems().addAll("UNTREATED");
         akimTipiChoiceBox.getItems().addAll("AC","DC");
 
         SpinnerValueFactory<Integer> yuzeySicakligiValueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(-40,60,15);
@@ -1094,7 +1157,8 @@ public class ManyetikParcacikMuayeneRaporuController {
             Calisan newOperator = new Calisan(resultSet.getString("calisanAdi"),
                     resultSet.getString("calisanSoyadi"),
                     resultSet.getString("calisanLevel"),
-                    resultSet.getDate("calisanSertifikaTarihi").toLocalDate());
+                    resultSet.getDate("calisanSertifikaTarihi").toLocalDate(),
+                    resultSet.getString("calisanSifre"));
 
             operatorAdiLabel.setText(newOperator.getCalisanAdi() + " " + newOperator.getCalisanSoyadi());
             operatorLevelLabel.setText(newOperator.getCalisanLevel());
@@ -1136,7 +1200,8 @@ public class ManyetikParcacikMuayeneRaporuController {
             Calisan newDegerlendiren = new Calisan(resultSet.getString("calisanAdi"),
                     resultSet.getString("calisanSoyadi"),
                     resultSet.getString("calisanLevel"),
-                    resultSet.getDate("calisanSertifikaTarihi").toLocalDate());
+                    resultSet.getDate("calisanSertifikaTarihi").toLocalDate(),
+                    resultSet.getString("calisanSifre"));
 
             degerlendirenAdiLabel.setText(newDegerlendiren.getCalisanAdi() + " " + newDegerlendiren.getCalisanSoyadi());
             degerlendirenLevelLabel.setText(newDegerlendiren.getCalisanLevel());
@@ -1177,7 +1242,8 @@ public class ManyetikParcacikMuayeneRaporuController {
             Calisan newOnaylayan = new Calisan(resultSet.getString("calisanAdi"),
                     resultSet.getString("calisanSoyadi"),
                     resultSet.getString("calisanLevel"),
-                    resultSet.getDate("calisanSertifikaTarihi").toLocalDate());
+                    resultSet.getDate("calisanSertifikaTarihi").toLocalDate(),
+                    resultSet.getString("calisanSifre"));
 
 
             onaylayanAdiLabel.setText(newOnaylayan.getCalisanAdi() + " " + newOnaylayan.getCalisanSoyadi());
@@ -1210,7 +1276,7 @@ public class ManyetikParcacikMuayeneRaporuController {
                         resultSet.getString("TestYeri"),
                         resultSet.getString("IsEmriNo"),
                         resultSet.getString("TeklifNo"));
-                newMusteri.setMusteriID(resultSet.getInt("musteriID"));
+
                 musteriChoiceBox.getItems().add(newMusteri.getMusteriAdi());
                 isEmriNoChoiceBox.getItems().add(newMusteri.getIsEmriNo());
                 teklifNoChoiceBox.getItems().add(newMusteri.getTeklifNo());

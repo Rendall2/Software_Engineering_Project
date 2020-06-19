@@ -10,7 +10,7 @@ public class Database {
     public static Connection getConnenction(){
         try{
             Class.forName("org.hsqldb.jdbcDriver");
-            String url = "jdbc:hsqldb:file:C:\\Users\\Ogulcan\\Desktop\\ProjeFolderı\\;shutdown=true";
+            String url = "jdbc:hsqldb:file:C:\\Users\\Ogulcan\\Desktop\\ProjeDatabase\\;shutdown=true";
             conn = DriverManager.getConnection(url,"Rendall","RelmAdo239");
         }
         catch (SQLException e) {

@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,6 +25,7 @@ public class RaporSecimEkraniController {
     @FXML private ChoiceBox operatorSecimiChoiceBox;
     @FXML private ChoiceBox degerlendirenSecimiChoiceBox;
     @FXML private ChoiceBox onaylayanSecimiChoiceBox;
+    @FXML private DatePicker tarihDatePicker;
     @FXML ChoiceBox<String> RaporTuruChoiceBox = new ChoiceBox();
 
     public void RaporOlusturmayaBaslaButtonPushed(ActionEvent event) throws IOException,SQLException {
@@ -150,8 +152,8 @@ public class RaporSecimEkraniController {
                 Calisan newCalisan = new Calisan(resultSet.getString("calisanAdi"),
                         resultSet.getString("calisanSoyadi"),
                         resultSet.getString("calisanLevel"),
-                        resultSet.getDate("calisanSertifikaTarihi").toLocalDate());
-                newCalisan.setCalisanID(resultSet.getInt("calisanID"));
+                        resultSet.getDate("calisanSertifikaTarihi").toLocalDate(),
+                        resultSet.getString("calisanSifre"));
                 operatorSecimiChoiceBox.getItems().add(newCalisan.getCalisanAdi() + " " + newCalisan.getCalisanSoyadi());
                 onaylayanSecimiChoiceBox.getItems().add(newCalisan.getCalisanAdi() + " " + newCalisan.getCalisanSoyadi());
                 degerlendirenSecimiChoiceBox.getItems().add(newCalisan.getCalisanAdi() + " " + newCalisan.getCalisanSoyadi());
@@ -184,7 +186,6 @@ public class RaporSecimEkraniController {
                         resultSet.getString("TestYeri"),
                         resultSet.getString("IsEmriNo"),
                         resultSet.getString("TeklifNo"));
-                newMusteri.setMusteriID(resultSet.getInt("musteriID"));
                 musteriSecimiChoiceBox.getItems().add(newMusteri.getMusteriAdi());
             }
 

@@ -15,9 +15,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane prefHeight="1900.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ManyetikParcacikMuayeneRaporuController">
+<ScrollPane prefHeight="2000.0" prefWidth="941.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.ManyetikParcacikMuayeneRaporuController">
    <content>
-      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="1900.0" prefWidth="941.0">
+      <AnchorPane fx:id="raporAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="2000.0" prefWidth="941.0">
          <children>
             <VBox layoutX="177.0" layoutY="-5.0" prefHeight="59.0" prefWidth="750.0" style="-fx-border-style: solid;">
                <children>
@@ -2353,13 +2353,74 @@
                         </HBox>
                      </children>
                   </HBox>
+                  <HBox prefHeight="80.0" prefWidth="200.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="51.0" prefWidth="222.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label prefHeight="75.0" prefWidth="39.0" style="-fx-background-color: #ffcccc;" text="İmza/">
+                                 <font>
+                                    <Font name="System Bold" size="11.0" />
+                                 </font>
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin>
+                                 <padding>
+                                    <Insets left="5.0" />
+                                 </padding>
+                              </Label>
+                              <Label prefHeight="78.0" prefWidth="174.0" style="-fx-background-color: #ffcccc;" text="Signature">
+                                 <font>
+                                    <Font name="System Italic" size="11.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="51.0" prefWidth="193.0">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="230.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="49.0" prefWidth="226.0">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="180.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="59.0" prefWidth="178.0">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="51.0" prefWidth="140.0" style="-fx-border-style: solid;">
+                           <children>
+                              <Label alignment="CENTER" prefHeight="50.0" prefWidth="116.0">
+                                 <font>
+                                    <Font name="System Bold" size="10.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
                </children>
             </VBox>
-            <Button layoutX="18.0" layoutY="36.0" mnemonicParsing="false" onAction="#exceleAktarButtonPushed" text="Excele aktar">
+            <Button layoutX="14.0" layoutY="70.0" mnemonicParsing="false" onAction="#exceleAktarButtonPushed" text="Excele aktar">
                <font>
                   <Font name="System Bold" size="16.0" />
                </font>
             </Button>
+            <Button layoutX="19.0" layoutY="12.0" mnemonicParsing="false" onAction="#scanButtonPushed" text="PDF" />
          </children>
       </AnchorPane>
    </content>

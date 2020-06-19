@@ -1,7 +1,7 @@
 package sample;
 
-import javafx.beans.property.SimpleStringProperty;
 
+import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.time.LocalDate;
 
@@ -12,15 +12,19 @@ public class Calisan {
     private String calisanSifre;
     private LocalDate calisanSertifikaTarihi;
     private int calisanID;
+    private byte[] salt;
 
 
 
-    public Calisan(String ad, String soyad, String calisanLevel, LocalDate sertifikatarihi) {
+    public Calisan(String ad, String soyad, String calisanLevel, LocalDate sertifikatarihi,String calisanSifre) throws NoSuchAlgorithmException {
         this.calisanAdi = ad;
         this.calisanSoyadi = soyad;
         this.calisanLevel = calisanLevel;
         this.calisanSertifikaTarihi = sertifikatarihi;
+        salt = Password.getSalt();
+        this.calisanSifre = Password.getSHA512Password(calisanSifre,salt);
     }
+
 
     public int getCalisanID() { return calisanID; }
 
@@ -61,8 +65,8 @@ public class Calisan {
             //1.Connect to the DB
             conn = Database.getConnenction();
             //2. Create a String that holds the query with ? as inputs
-            String sql = "INSERT INTO Calisan(calisanAdi,calisanSoyadi,calisanLevel,calisanSertifikaTarihi) " +
-                    "VALUES (?,?,?,?)";
+            String sql = "INSERT INTO Calisan(calisanAdi,calisanSoyadi,calisanLevel,calisanSertifikaTarihi,calisanSifre,Salt) " +
+                    "VALUES (?,?,?,?,?,?)";
 
             //3. Prepare the query
             preparedStatement = conn.prepareStatement(sql);
@@ -75,6 +79,8 @@ public class Calisan {
             preparedStatement.setString(2, calisanSoyadi);
             preparedStatement.setString(3, calisanLevel);
             preparedStatement.setDate(4,db);
+            preparedStatement.setString(5, calisanSifre);
+            preparedStatement.setBlob(6,new javax.sql.rowset.serial.SerialBlob(salt));
 
             preparedStatement.executeUpdate();
         }

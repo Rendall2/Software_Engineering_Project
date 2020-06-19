@@ -59,7 +59,7 @@
                   <ChoiceBox fx:id="operatorSecimiChoiceBox" prefHeight="26.0" prefWidth="160.0" />
                   <ChoiceBox fx:id="degerlendirenSecimiChoiceBox" prefHeight="26.0" prefWidth="159.0" />
                   <ChoiceBox fx:id="onaylayanSecimiChoiceBox" prefHeight="26.0" prefWidth="159.0" />
-                  <DatePicker prefHeight="26.0" prefWidth="155.0" />
+                  <DatePicker fx:id="tarihDatePicker" prefHeight="26.0" prefWidth="155.0" />
                   <ChoiceBox fx:id="RaporTuruChoiceBox" prefHeight="26.0" prefWidth="161.0" />
                </children>
             </VBox>

@@ -13,22 +13,102 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.*;
 
 public class LoginController {
     @FXML private TextField kullaniciAdiTextField;
-    @FXML private TextField şifreTextField;
+    @FXML private TextField şifrePasswordField;
     @FXML private Label adminOlarakGirisYapLabel;
     @FXML private Button girisYapButton;
+    @FXML private Label errorLabel;
 
     public void girisYapButtonPushed(ActionEvent event) throws IOException {
-        Parent AdminAnaEkranParent = FXMLLoader.load(getClass().getResource("RaporSecimEkrani.fxml"));
-        Scene AdminAnaEkranScene = new Scene(AdminAnaEkranParent);
 
-        //This line get the stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet resultSet = null;
+        byte[] salt = null;
 
-        window.setScene(AdminAnaEkranScene);
-        window.show();
+        String databaseSifre = null;
+
+        try{
+            int kullaniciAdi = Integer.parseInt(kullaniciAdiTextField.getText());
+
+            conn = Database.getConnenction();
+
+            ps = conn.prepareStatement("SELECT CalisanSifre,Salt FROM Calisan WHERE calisanID = ?");
+
+            ps.setInt(1,kullaniciAdi);
+
+            resultSet = ps.executeQuery();
+
+            while(resultSet.next()){
+                databaseSifre = resultSet.getString("calisanSifre");
+                Blob blob = resultSet.getBlob("SALT");
+                //convert into a byte array
+                int blobLength = (int) blob.length();
+                salt = blob.getBytes(1, blobLength);
+            }
+
+            String kullaniciSifre = Password.getSHA512Password(şifrePasswordField.getText(),salt);
+            if(kullaniciSifre.equals(databaseSifre))
+            {
+                Parent AdminAnaEkranParent = FXMLLoader.load(getClass().getResource("RaporSecimEkrani.fxml"));
+                Scene AdminAnaEkranScene = new Scene(AdminAnaEkranParent);
+
+                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+                window.setScene(AdminAnaEkranScene);
+                window.show();
+
+            }
+            else if(şifrePasswordField.getText().isEmpty()){
+                errorLabel.setText("Lütfen şifrenizi giriniz!");
+            }
+            else
+            {
+                errorLabel.setText("Hatalı giriş! Lütfen tekrar deneyiniz");
+            }
+        }
+
+
+        catch (SQLException e){
+            System.out.println("sql");
+            if(şifrePasswordField.getText().isEmpty()){
+                errorLabel.setText("Lütfen şifrenizi giriniz!");
+            }
+            else{
+                errorLabel.setText("Hatalı giriş! Lütfen tekrar deneyiniz");
+            }
+
+            e.getMessage();
+        }
+        catch(NullPointerException e){
+            System.out.println("Null");
+            if(şifrePasswordField.getText().isEmpty()){
+                errorLabel.setText("Lütfen şifrenizi giriniz!");
+            }
+            else if(kullaniciAdiTextField.getText().isEmpty()){
+                errorLabel.setText("Lütfen kullanıcı adınızı giriniz!");
+            }
+            else{
+                errorLabel.setText("Hatalı giriş! Lütfen tekrar deneyiniz");
+            }
+            e.getMessage();
+        }
+        catch (NumberFormatException e){
+            System.out.println("no");
+            if(şifrePasswordField.getText().isEmpty()){
+                errorLabel.setText("Lütfen kullanıcı adınızı ve şifrenizi giriniz!");
+            }
+            else{
+                errorLabel.setText("Lütfen kullanıcı adınızı giriniz!");
+            }
+
+
+        }
+
+
     }
 
     public void adminOlarakGirisYapLabelPushed(MouseEvent event) throws IOException {
@@ -40,5 +120,8 @@ public class LoginController {
 
         window.setScene(AdminAnaEkranScene);
         window.show();
+    }
+    public void initialize(){
+        errorLabel.setText("");
     }
 }

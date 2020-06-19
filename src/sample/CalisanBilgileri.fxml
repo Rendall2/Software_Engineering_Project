@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -12,13 +13,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="435.0" prefWidth="610.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CalisanBilgileriController">
+<AnchorPane prefHeight="470.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.CalisanBilgileriController">
    <children>
-      <Button layoutX="14.0" layoutY="397.0" mnemonicParsing="false" onAction="#geriButtonPushed" text="Geri">
+      <Button layoutX="14.0" layoutY="432.0" mnemonicParsing="false" onAction="#geriButtonPushed" text="Geri">
          <font>
             <Font size="11.0" />
          </font></Button>
-      <VBox layoutX="47.0" layoutY="96.0" prefHeight="286.0" prefWidth="515.0" spacing="15.0">
+      <VBox layoutX="47.0" layoutY="96.0" prefHeight="330.0" prefWidth="515.0" spacing="15.0">
          <children>
             <TableView fx:id="calisanTableView" prefHeight="280.0" prefWidth="515.0">
               <columns>
@@ -31,12 +32,19 @@
             </TableView>
             <HBox prefHeight="25.0" prefWidth="200.0" spacing="20.0">
                <children>
-                  <TextField fx:id="adTextField" prefWidth="130.0" promptText="Ad" />
-                  <TextField fx:id="soyadTextField" prefHeight="26.0" prefWidth="110.0" promptText="Soyad" />
-                  <TextField fx:id="levelTextField" prefHeight="26.0" prefWidth="105.0" promptText="Level" />
-                  <DatePicker fx:id="sertifikaTarihiDatePicker" prefHeight="26.0" prefWidth="150.0" promptText="Sertifika Bitiş Tarihi" />
-               </children></HBox>
-            <ToolBar prefHeight="38.0" prefWidth="524.0">
+                  <TextField fx:id="adTextField" prefWidth="140.0" promptText="Ad" />
+                  <TextField fx:id="soyadTextField" prefHeight="26.0" prefWidth="100.0" promptText="Soyad" />
+                  <TextField fx:id="levelTextField" prefHeight="26.0" prefWidth="100.0" promptText="Level" />
+                  <DatePicker fx:id="sertifikaTarihiDatePicker" prefHeight="26.0" prefWidth="140.0" promptText="Sertifika Bitiş Tarihi" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="31.0" prefWidth="515.0" spacing="249.0">
+               <children>
+                  <PasswordField fx:id="sifrePasswordField" prefHeight="26.0" prefWidth="133.0" promptText="Şifre" />
+                  <PasswordField fx:id="sifreOnayıPasswordField" prefHeight="26.0" prefWidth="134.0" promptText="Şifreyi Onayla" />
+               </children>
+            </HBox>
+            <ToolBar prefHeight="30.0" prefWidth="515.0">
                <items>
                   <HBox prefHeight="26.0" prefWidth="386.0">
                      <children>
@@ -48,7 +56,7 @@
             </ToolBar>
          </children>
       </VBox>
-      <Label alignment="CENTER" prefHeight="68.0" prefWidth="610.0" style="-fx-background-color: #000000;" text="GÖZETİM MUAYENE VE  EĞİTİM HİZMETLERİ" textFill="#dacfcf">
+      <Label alignment="CENTER" prefHeight="68.0" prefWidth="620.0" style="-fx-background-color: #000000;" text="GÖZETİM MUAYENE VE  EĞİTİM HİZMETLERİ" textFill="#dacfcf">
          <font>
             <Font name="System Bold Italic" size="20.0" />
          </font>

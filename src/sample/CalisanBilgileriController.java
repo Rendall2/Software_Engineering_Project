@@ -33,6 +33,8 @@ public class CalisanBilgileriController {
     @FXML private TextField soyadTextField;
     @FXML private TextField levelTextField;
     @FXML private DatePicker sertifikaTarihiDatePicker;
+    @FXML private PasswordField sifrePasswordField;
+    @FXML private PasswordField sifreOnayıPasswordField;
 
     public void updateCalisanAdiCellEvent(TableColumn.CellEditEvent edittedCell) throws SQLException{
         //SQL
@@ -151,16 +153,22 @@ public class CalisanBilgileriController {
     }
 
     public void calisanEkleButtonPushed(){
+        if(!(sifrePasswordField.getText().equals(sifreOnayıPasswordField.getText()))){
+            AlertBox.createAlertBox("Girilen şifreler uyuşmamaktadır. Lütfen tekrar deneyiniz");
+            return;
+        }
+
         try {
             Calisan newCalisan = new Calisan(adTextField.getText(), soyadTextField.getText(),
-                    levelTextField.getText(),sertifikaTarihiDatePicker.getValue());
+                    levelTextField.getText(), sertifikaTarihiDatePicker.getValue(), sifrePasswordField.getText());
             //Get all the items from the table as a list, then add the new Person
             newCalisan.insertIntoDB();
             calisanTableView.getItems().add(newCalisan);
-        }
-        catch (Exception e){
+        } catch (Exception e) {
             System.err.println(e.getMessage());
         }
+
+
     }
 
     //This method will delete the chosen Calisan
@@ -235,7 +243,8 @@ public class CalisanBilgileriController {
                 Calisan newCalisan = new Calisan(resultSet.getString("calisanAdi"),
                         resultSet.getString("calisanSoyadi"),
                         resultSet.getString("calisanLevel"),
-                        resultSet.getDate("calisanSertifikaTarihi").toLocalDate());
+                        resultSet.getDate("calisanSertifikaTarihi").toLocalDate(),
+                        resultSet.getString("calisanSifre"));
                 newCalisan.setCalisanID(resultSet.getInt("calisanID"));
                 calisanlar.add(newCalisan);
             }
