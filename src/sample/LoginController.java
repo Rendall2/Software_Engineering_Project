@@ -53,14 +53,19 @@ public class LoginController {
             String kullaniciSifre = Password.getSHA512Password(şifrePasswordField.getText(),salt);
             if(kullaniciSifre.equals(databaseSifre))
             {
-                Parent AdminAnaEkranParent = FXMLLoader.load(getClass().getResource("RaporSecimEkrani.fxml"));
-                Scene AdminAnaEkranScene = new Scene(AdminAnaEkranParent);
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("RaporSecimEkrani.fxml"));
+                Parent raporSecimEkraniParent = loader.load();
 
-                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                Scene raporSecimEkrani = new Scene(raporSecimEkraniParent);
 
-                window.setScene(AdminAnaEkranScene);
+                RaporSecimEkraniController controller = loader.getController();
+                controller.disableGeriButton();
+
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                window.setScene(raporSecimEkrani);
                 window.show();
-
             }
             else if(şifrePasswordField.getText().isEmpty()){
                 errorLabel.setText("Lütfen şifrenizi giriniz!");
@@ -73,7 +78,6 @@ public class LoginController {
 
 
         catch (SQLException e){
-            System.out.println("sql");
             if(şifrePasswordField.getText().isEmpty()){
                 errorLabel.setText("Lütfen şifrenizi giriniz!");
             }
@@ -84,7 +88,6 @@ public class LoginController {
             e.getMessage();
         }
         catch(NullPointerException e){
-            System.out.println("Null");
             if(şifrePasswordField.getText().isEmpty()){
                 errorLabel.setText("Lütfen şifrenizi giriniz!");
             }
@@ -97,7 +100,6 @@ public class LoginController {
             e.getMessage();
         }
         catch (NumberFormatException e){
-            System.out.println("no");
             if(şifrePasswordField.getText().isEmpty()){
                 errorLabel.setText("Lütfen kullanıcı adınızı ve şifrenizi giriniz!");
             }

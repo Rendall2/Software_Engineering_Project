@@ -16,16 +16,20 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.Period;
 
 public class RaporSecimEkraniController {
 
     @FXML private Button RaporOlusturmayaBaslaButton;
+    @FXML private Button geriButton;
     @FXML private ChoiceBox musteriSecimiChoiceBox;
     @FXML private ChoiceBox ekipmanSecimiChoiceBox;
     @FXML private ChoiceBox operatorSecimiChoiceBox;
     @FXML private ChoiceBox degerlendirenSecimiChoiceBox;
     @FXML private ChoiceBox onaylayanSecimiChoiceBox;
-    @FXML private DatePicker tarihDatePicker;
+    @FXML private DatePicker raporTarihiDatePicker;
+    @FXML private DatePicker muayeneTarihiDatePicker;
     @FXML ChoiceBox<String> RaporTuruChoiceBox = new ChoiceBox();
 
     public void RaporOlusturmayaBaslaButtonPushed(ActionEvent event) throws IOException,SQLException {
@@ -48,7 +52,15 @@ public class RaporSecimEkraniController {
         else if(onaylayanSecimiChoiceBox.getSelectionModel().getSelectedItem() == null){
             AlertBox.createAlertBox("Lütfen onaylayan seçiniz!");
         }
-
+        else if(raporTarihiDatePicker.getValue() == null){
+            AlertBox.createAlertBox("Lütfen rapor tarihini giriniz!");
+        }
+        else if(muayeneTarihiDatePicker.getValue() == null){
+            AlertBox.createAlertBox("Lütfen muayene tarihini giriniz!");
+        }
+       // else if(Period.between(tarihDatePicker.getValue(), LocalDate.now()).getDays() < 0){
+        //    AlertBox.createAlertBox("Lütfen güncel bir tarih seçiniz!");
+        //}
         else {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(getClass().getResource("ManyetikParcacikMuayeneRaporu.fxml"));
@@ -57,14 +69,20 @@ public class RaporSecimEkraniController {
             Scene AdminAnaEkranScene = new Scene(raporSecimEkraniParent);
 
             ManyetikParcacikMuayeneRaporuController controller = loader.getController();
+            if(controller.initOnaylayanData(onaylayanSecimiChoiceBox.getValue().toString()) == false){
+                return;
+            }
+            else if(controller.initOperatorData(operatorSecimiChoiceBox.getValue().toString()) == false){
+                return;
+            }
+            else if(controller.initDegerlendirenData(degerlendirenSecimiChoiceBox.getValue().toString()) == false){
+                return;
+            }
+
             controller.initMusteriData(musteriSecimiChoiceBox.getValue().toString());
-
-            controller.initOperatorData(operatorSecimiChoiceBox.getValue().toString());
-            controller.initOnaylayanData(onaylayanSecimiChoiceBox.getValue().toString());
-            controller.initDegerlendirenData(degerlendirenSecimiChoiceBox.getValue().toString());
-
             controller.initEkipmanData(ekipmanSecimiChoiceBox.getValue().toString());
-
+            controller.initRaporTarihi(raporTarihiDatePicker.getValue());
+            controller.initMuayeneTarihi(muayeneTarihiDatePicker.getValue());
             //This line get the stage information
             Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
@@ -200,5 +218,8 @@ public class RaporSecimEkraniController {
 
         }
 
+    }
+    public void disableGeriButton(){
+        geriButton.setVisible(false);
     }
 }

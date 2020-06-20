@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="475.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RaporSecimEkraniController">
+<AnchorPane prefHeight="510.0" prefWidth="525.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.RaporSecimEkraniController">
    <children>
-      <HBox layoutX="33.0" layoutY="91.0" prefHeight="299.0" prefWidth="500.0">
+      <HBox layoutX="33.0" layoutY="91.0" prefHeight="378.0" prefWidth="500.0">
          <children>
             <VBox prefHeight="254.0" prefWidth="329.0" spacing="20.0">
                <children>
@@ -40,7 +40,12 @@
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
                   </Label>
-                  <Label text="Lütfen tarihi giriniz.">
+                  <Label prefHeight="26.0" prefWidth="246.0" text="Lütfen rapor tarihini giriniz.">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label text="Lütfen muayene tarihini seçiniz.">
                      <font>
                         <Font name="System Bold Italic" size="16.0" />
                      </font>
@@ -59,13 +64,14 @@
                   <ChoiceBox fx:id="operatorSecimiChoiceBox" prefHeight="26.0" prefWidth="160.0" />
                   <ChoiceBox fx:id="degerlendirenSecimiChoiceBox" prefHeight="26.0" prefWidth="159.0" />
                   <ChoiceBox fx:id="onaylayanSecimiChoiceBox" prefHeight="26.0" prefWidth="159.0" />
-                  <DatePicker fx:id="tarihDatePicker" prefHeight="26.0" prefWidth="155.0" />
+                  <DatePicker fx:id="raporTarihiDatePicker" prefHeight="26.0" prefWidth="155.0" />
+                  <DatePicker fx:id="muayeneTarihiDatePicker" prefHeight="26.0" prefWidth="155.0" />
                   <ChoiceBox fx:id="RaporTuruChoiceBox" prefHeight="26.0" prefWidth="161.0" />
                </children>
             </VBox>
          </children>
       </HBox>
-      <Button fx:id="RaporOlusturmayaBaslaButton" layoutX="383.0" layoutY="433.0" mnemonicParsing="false" onAction="#RaporOlusturmayaBaslaButtonPushed" text="Rapor oluşturmaya başla">
+      <Button fx:id="RaporOlusturmayaBaslaButton" layoutX="383.0" layoutY="472.0" mnemonicParsing="false" onAction="#RaporOlusturmayaBaslaButtonPushed" text="Rapor oluşturmaya başla">
          <font>
             <Font size="11.0" />
          </font></Button>
@@ -74,5 +80,6 @@
             <Font name="System Bold Italic" size="20.0" />
          </font>
       </Label>
+      <Button fx:id="geriButton" layoutX="33.0" layoutY="472.0" mnemonicParsing="false" onAction="#geriButtonPushed" text="Geri" />
    </children>
 </AnchorPane>

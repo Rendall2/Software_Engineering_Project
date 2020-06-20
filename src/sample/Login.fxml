@@ -27,7 +27,7 @@
             <Blend />
          </effect>
       </Label>
-      <HBox layoutX="56.0" layoutY="102.0" prefHeight="126.0" prefWidth="243.0">
+      <HBox layoutX="56.0" layoutY="102.0" prefHeight="98.0" prefWidth="243.0">
          <children>
             <VBox prefHeight="68.0" prefWidth="26.0" spacing="10.0">
                <children>
@@ -43,15 +43,15 @@
                   </ImageView>
                </children>
             </VBox>
-            <VBox prefHeight="126.0" prefWidth="202.0" spacing="10.0">
+            <VBox prefHeight="126.0" prefWidth="164.0" spacing="10.0">
                <children>
                   <TextField fx:id="kullaniciAdiTextField" promptText="Kullanıcı adı" />
                   <PasswordField fx:id="şifrePasswordField" promptText="Sifre" />
                   <Button fx:id="girisYapButton" mnemonicParsing="false" onAction="#girisYapButtonPushed" text="Giriş Yap" />
-                  <Label fx:id="errorLabel" prefHeight="18.0" prefWidth="221.0" text="Kullanıcı adını ve şifreyi doğru giriniz" textFill="#f03131" />
                </children>
             </VBox>
          </children>
       </HBox>
+      <Label fx:id="errorLabel" layoutX="83.0" layoutY="207.0" prefHeight="18.0" prefWidth="221.0" text="Lütfen kullanıcı adınızı ve şifrenizi giriniz!" textFill="#f03131" />
    </children>
 </AnchorPane>

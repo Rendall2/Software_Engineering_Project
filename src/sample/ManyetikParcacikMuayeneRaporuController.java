@@ -5,6 +5,9 @@ import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
 import javafx.scene.control.*;
@@ -27,6 +30,8 @@ import org.apache.poi.util.IOUtils;
 import javax.imageio.ImageIO;
 import java.io.*;
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.Period;
 import java.util.Optional;
 
 import static org.apache.poi.ss.usermodel.HorizontalAlignment.CENTER;
@@ -63,7 +68,6 @@ public class ManyetikParcacikMuayeneRaporuController {
     @FXML TextField resimNoTextField;
     @FXML TextField sayfaNoTextField;
     @FXML TextField raporNoTextField;
-    @FXML TextField raporTarihiTextField;
 
     @FXML TextField kutupMesafesiTextField;
     @FXML TextField cihazTextField;
@@ -81,6 +85,8 @@ public class ManyetikParcacikMuayeneRaporuController {
     @FXML TextField isikCihaziTanimiTextField;
     @FXML TextField kaldirmaTestiTarihiTextField;
     @FXML TextField standarttanSapmalarTextField;
+
+    @FXML TextField aciklamalarEklerTextField;
 
     @FXML TextField kaynakParcaNoTextfield1;
     @FXML TextField kaynakParcaNoTextfield2;
@@ -166,6 +172,9 @@ public class ManyetikParcacikMuayeneRaporuController {
     @FXML CheckBox alinKaynagiCheckbox;
     @FXML CheckBox koseKaynagiCheckbox;
 
+    @FXML Label raporTarihiLabel;
+    @FXML Label muayeneTarihleriLabel;
+
     @FXML Label musteriAdiLabel;
     @FXML Label operatorAdiLabel;
     @FXML Label operatorLevelLabel;
@@ -173,21 +182,70 @@ public class ManyetikParcacikMuayeneRaporuController {
     @FXML Label degerlendirenLevelLabel;
     @FXML Label onaylayanAdiLabel;
     @FXML Label onaylayanLevelLabel;
+    @FXML Label operatorTarihLabel;
+    @FXML Label degerlendirenTarihLabel;
+    @FXML Label onaylayanTarihLabel;
 
-    @FXML Button pdfButton;
     @FXML AnchorPane raporAnchorPane;
 
 
     public String operatorAdi,operatorSoyadi, onaylayanAdi, onaylayanSoyadi, degerlendirenAdi, degerlendirenSoyadi;
 
-    public void exceleAktarButtonPushed(ActionEvent event) throws  Exception {
+    public void geriButtonPushed(ActionEvent event) throws IOException {
+        Parent AdminAnaEkranParent = FXMLLoader.load(getClass().getResource("RaporSecimEkrani.fxml"));
+        Scene AdminAnaEkranScene = new Scene(AdminAnaEkranParent);
+
+        //This line get the stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+
+        window.setScene(AdminAnaEkranScene);
+        window.show();
+    }
+
+    public void exceleAktarButtonPushed(ActionEvent event) throws  Exception,NullPointerException {
 
         int muayeneKapsamiInt = Integer.parseInt(muayeneKapsamıTextField.getText());
+
+
+        try{
+            if(musteriChoiceBox.getValue().toString() == null || projeAdiChoiceBox.getValue().toString() == null||
+                    testYeriTextField.getText().trim().isEmpty() || muayeneStandartıTextField.getText().trim().isEmpty() ||
+                    değerlendirenStandartıTextField.getText().trim().isEmpty() || muayeneProsedürüTextField.getText().trim().isEmpty() ||
+                    yuzeyDurumuChoiceBox.getValue().toString() == null || muayeneAsamasiChoiceBox.getValue().toString() == null||
+                    sayfaNoTextField.getText().trim().isEmpty() || raporNoTextField.getText().trim().isEmpty() ||
+                    isEmriNoChoiceBox.getValue().toString() == null || teklifNoChoiceBox.getValue().toString() == null ||
+                    kutupMesafesiTextField.getText().trim().isEmpty() || cihazTextField.getText().trim().isEmpty() ||
+                    mpTasiyiciOrtamTextField.getText().trim().isEmpty()  || miknatislamaTeknigiTextField.getText().trim().isEmpty() ||
+                    uvIsikSiddetiTextField.getText().trim().isEmpty() || isikMesafesiTextField.getText().trim().isEmpty() ||
+                    muayeneBolgesiTextField.getText().trim().isEmpty() || luxmetreTextField.getText().trim().isEmpty() ||
+                    yuzeySicakligiSpinner.getValue().toString() == null || muayeneBolgesindekiAlanSiddetiTextfield.getText().trim().isEmpty() ||
+                    yuzeyTextField.getText().trim().isEmpty() || isikCihaziTanimiTextField.getText().trim().isEmpty() ||
+                    kaldirmaTestiTarihiTextField.getText().trim().isEmpty() || kaynakParcaNoTextfield1.getText().trim().isEmpty()  ||
+                    kontrolUzunTextfield1.getText().trim().isEmpty() || kaynakYonTextField1.getText().trim().isEmpty() ||
+                    kalinlikTextField1.getText().trim().isEmpty() || capTextField1.getText().trim().isEmpty() ) {
+
+                AlertBox.createAlertBox("Lütfen gerekli tüm alanları giriniz.");
+                return;
+            }
+            else if(sonucChoiceBox1.getValue().toString() == "RED"){
+                if(hataninYeriTextField1.getText().trim().isEmpty() || hataTipiTextField1.getText().trim().isEmpty()){
+                    AlertBox.createAlertBox("Lütfen gerekli tüm alanları giriniz.");
+                    return;
+                }
+
+            }
+        }
+        catch(NullPointerException e){
+            AlertBox.createAlertBox("Lütfen gerekli tüm alanları giriniz.");
+            e.getMessage();
+            return;
+        }
 
         if (muayeneKapsamiInt > 100 || 0 > muayeneKapsamiInt ||
                 !(muayeneKapsamıTextField.getText().length() == 1 || muayeneKapsamıTextField.getText().length() == 2 || muayeneKapsamıTextField.getText().length() == 3)) {
             AlertBox.createAlertBox("Lütfen muayene kapsamı için 1'den 100'e kadar bir değer giriniz.\nGirilen değer: " + muayeneKapsamıTextField.getText());
         }
+
 
         else {
             Workbook workbook = Excel.createExcelDocument("test.xls");
@@ -290,7 +348,7 @@ public class ManyetikParcacikMuayeneRaporuController {
             CellStyle cellStyle7 = workbook.createCellStyle();
             CellStyle cellStyleText = workbook.createCellStyle();
             CellStyle cellStyleText2 = workbook.createCellStyle();
-
+            CellStyle cellStyleText3 = workbook.createCellStyle();
 
             //Initializing the fonts of headers
             Font fontHeader1 = workbook.createFont();  //Turkish with rosa text
@@ -355,6 +413,10 @@ public class ManyetikParcacikMuayeneRaporuController {
             //It is for the last cells of my function styleTheCells(It also outlines the right side of the Cell)
             cellStyle4.setBorderBottom(BorderStyle.THICK);
             cellStyle4.setBorderRight(BorderStyle.THICK);
+            cellStyle4.setWrapText(true);
+            cellStyle4.setVerticalAlignment(VerticalAlignment.CENTER);
+            cellStyle4.setAlignment(CENTER);
+            cellStyle4.setFont(fontText3);
 
 
             //It thickens the right Corner of the Cell only
@@ -395,6 +457,10 @@ public class ManyetikParcacikMuayeneRaporuController {
             cellStyleText2.setFillPattern(FillPatternType.SOLID_FOREGROUND);
             cellStyleText2.setWrapText(true);
 
+            //Text cellstyle that text stays left
+            cellStyleText3.setBorderBottom(BorderStyle.THICK);
+            cellStyleText3.setFont(fontText3);
+            cellStyleText3.setVerticalAlignment(VerticalAlignment.CENTER);
 
             //Initializing the rows
             Row rowTitle1 = rapor.createRow(0);
@@ -881,15 +947,14 @@ public class ManyetikParcacikMuayeneRaporuController {
                 Excel.styleTheCells(rowValue, rowValue, 12, 20, rapor, cellStyle2, cellStyle7, cellStyle6);
 
             }
-
             //Standart Sapmalar to acıklamalar cells
             Excel.styleTheCells(19, 19, 0, 4, rapor, cellStyle2, cellStyle7, cellStyle6);
             Excel.styleTheCells(20, 20, 0, 4, rapor, cellStyle2, cellStyle7, cellStyle6);
             Excel.styleTheCells(21, 21, 0, 4, rapor, cellStyle2, cellStyle7, cellStyle6);
 
-            Excel.styleTheCells(19, 19, 5, 20, rapor, cellStyle1, cellStyle4, cellStyle5);
-            Excel.styleTheCells(20, 20, 5, 20, rapor, cellStyle1, cellStyle4, cellStyle5);
-            Excel.styleTheCells(21, 21, 5, 20, rapor, cellStyle1, cellStyle4, cellStyle5);
+            Excel.styleTheCells(19, 19, 5, 20, rapor, cellStyleText3, cellStyle4, cellStyle5);
+            Excel.styleTheCells(20, 20, 5, 20, rapor, cellStyleText3, cellStyle4, cellStyle5);
+            Excel.styleTheCells(21, 21, 5, 20, rapor, cellStyleText3, cellStyle4, cellStyle5);
 
             //Gecis2 cells
             Excel.styleTheCells(22, 22, 0, 20, rapor, cellStyleText2, cellStyle7, cellStyle6);
@@ -908,15 +973,15 @@ public class ManyetikParcacikMuayeneRaporuController {
 
             for (int rowValue = 24; rowValue <= 33; rowValue++) {
 
-                Excel.styleTheCells(rowValue, rowValue, 0, 0, rapor, cellStyle1, cellStyle4, cellStyle5);
-                Excel.styleTheCells(rowValue, rowValue, 1, 5, rapor, cellStyle1, cellStyle4, cellStyle5);
+                Excel.styleTheCells(rowValue, rowValue, 0, 0, rapor, cellStyleText, cellStyle4, cellStyle5);
+                Excel.styleTheCells(rowValue, rowValue, 1, 5, rapor, cellStyleText, cellStyle4, cellStyle5);
                 Excel.styleTheCells(rowValue, rowValue, 6, 7, rapor, cellStyle1, cellStyle4, cellStyle5);
                 Excel.styleTheCells(rowValue, rowValue, 8, 10, rapor, cellStyle1, cellStyle4, cellStyle5);
                 Excel.styleTheCells(rowValue, rowValue, 11, 11, rapor, cellStyle1, cellStyle4, cellStyle5);
                 Excel.styleTheCells(rowValue, rowValue, 12, 14, rapor, cellStyle1, cellStyle4, cellStyle5);
                 Excel.styleTheCells(rowValue, rowValue, 15, 16, rapor, cellStyle1, cellStyle4, cellStyle5);
                 Excel.styleTheCells(rowValue, rowValue, 17, 19, rapor, cellStyle1, cellStyle4, cellStyle5);
-                Excel.styleTheCells(rowValue, rowValue, 20, 20, rapor, cellStyle1, cellStyle4, cellStyle5);
+                Excel.styleTheCells(rowValue, rowValue, 20, 20, rapor, cellStyleText, cellStyle4, cellStyle5);
 
             }
 
@@ -945,7 +1010,7 @@ public class ManyetikParcacikMuayeneRaporuController {
             //Printing entered values to excel file
             //Row1  //(String) getselection.getselecteditem
             CellUtil.createCell(row1_1, 2, musteriChoiceBox.getValue().toString());
-//            CellUtil.createCell(row1_2, 2, projeAdiChoiceBox.getValue().toString());
+            CellUtil.createCell(row1_2, 2, projeAdiChoiceBox.getValue().toString());
             CellUtil.createCell(row1_3, 2, testYeriTextField.getText());
             CellUtil.createCell(row1_4, 2, muayeneStandartıTextField.getText());
             CellUtil.createCell(row1_5, 2, değerlendirenStandartıTextField.getText());
@@ -953,12 +1018,12 @@ public class ManyetikParcacikMuayeneRaporuController {
             CellUtil.createCell(row1_1, 13, muayeneProsedürüTextField.getText());
             CellUtil.createCell(row1_2, 13, muayeneKapsamıTextField.getText() + "%");
             CellUtil.createCell(row1_3, 13, resimNoTextField.getText());
-            //    CellUtil.createCell(row1_4, 13, yuzeyDurumuChoiceBox.getValue().toString());
-            //   CellUtil.createCell(row1_5, 13, muayeneAsamasiChoiceBox.getValue().toString());
+            CellUtil.createCell(row1_4, 13, yuzeyDurumuChoiceBox.getValue().toString());
+            CellUtil.createCell(row1_5, 13, muayeneAsamasiChoiceBox.getValue().toString());
 
             CellUtil.createCell(row1_1, 19, sayfaNoTextField.getText());
             CellUtil.createCell(row1_2, 19, raporNoTextField.getText());
-            CellUtil.createCell(row1_3, 19, raporTarihiTextField.getText());
+            CellUtil.createCell(row1_3, 19, raporTarihiLabel.getText());
             CellUtil.createCell(row1_4, 19, isEmriNoChoiceBox.getValue().toString());
             CellUtil.createCell(row1_5, 19, teklifNoChoiceBox.getValue().toString());
 
@@ -979,12 +1044,90 @@ public class ManyetikParcacikMuayeneRaporuController {
 
             CellUtil.createCell(row2_1, 18, yuzeySicakligiSpinner.getValue().toString() + "°C");
             CellUtil.createCell(row2_2, 18, muayeneBolgesindekiAlanSiddetiTextfield.getText());
-            CellUtil.createCell(row2_3, 18, yuzeyTextField.getText());
-            CellUtil.createCell(row2_4, 18, isikCihaziTanimiTextField.getText());
-            CellUtil.createCell(row2_5, 18, kaldirmaTestiTarihiTextField.getText());
+            CellUtil.createCell(row2_4, 18, yuzeyTextField.getText());
+            CellUtil.createCell(row2_5, 18, isikCihaziTanimiTextField.getText());
+            CellUtil.createCell(row2_6, 18, kaldirmaTestiTarihiTextField.getText());
 
-            CellUtil.createCell(row4_1, 3, standarttanSapmalarTextField.getText());
+            //Standarttan sapmalar to acıklama
+            CellUtil.createCell(row4_1, 5, standarttanSapmalarTextField.getText());
+            CellUtil.createCell(row4_2,5, muayeneTarihleriLabel.getText());
+            CellUtil.createCell(row4_3,5,aciklamalarEklerTextField.getText());
 
+            CellUtil.createCell(row5_2,0,"1");
+            CellUtil.createCell(row5_2,1,kaynakParcaNoTextfield1.getText());
+            CellUtil.createCell(row5_2,6,kontrolUzunTextfield1.getText());
+            CellUtil.createCell(row5_2,8,kaynakYonTextField1.getText());
+            CellUtil.createCell(row5_2,11,kalinlikTextField1.getText());
+            CellUtil.createCell(row5_2,12,capTextField1.getText());
+            CellUtil.createCell(row5_2,15,hataTipiTextField1.getText());
+            CellUtil.createCell(row5_2,17,hataninYeriTextField1.getText());
+            CellUtil.createCell(row5_2,20,sonucChoiceBox1.getValue().toString());
+
+            CellUtil.createCell(row5_3,0,"2");
+            CellUtil.createCell(row5_3,1,kaynakParcaNoTextfield2.getText());
+            CellUtil.createCell(row5_3,6,kontrolUzunTextField2.getText());
+            CellUtil.createCell(row5_3,8,kaynakYonTextField2.getText());
+            CellUtil.createCell(row5_3,11,kalinlikTextField2.getText());
+            CellUtil.createCell(row5_3,12,capTextField2.getText());
+            CellUtil.createCell(row5_3,15,hataTipiTextField2.getText());
+            CellUtil.createCell(row5_3,17,hataninYeriTextField2.getText());
+            CellUtil.createCell(row5_3,20,sonucChoiceBox2.getValue().toString());
+
+            CellUtil.createCell(row5_4,0,"3");
+            CellUtil.createCell(row5_4,1,kaynakParcaNoTextfield3.getText());
+            CellUtil.createCell(row5_4,6,kontrolUzunTextField3.getText());
+            CellUtil.createCell(row5_4,8,kaynakYonTextField3.getText());
+            CellUtil.createCell(row5_4,11,kalinlikTextField3.getText());
+            CellUtil.createCell(row5_4,12,capTextField3.getText());
+            CellUtil.createCell(row5_4,15,hataTipiTextField3.getText());
+            CellUtil.createCell(row5_4,17,hataninYeriTextField3.getText());
+            CellUtil.createCell(row5_4,20,sonucChoiceBox3.getValue().toString());
+
+            CellUtil.createCell(row5_5,0,"4");
+            CellUtil.createCell(row5_5,1,kaynakParcaNoTextfield4.getText());
+            CellUtil.createCell(row5_5,6,kontrolUzunTextField4.getText());
+            CellUtil.createCell(row5_5,8,kaynakYonTextField4.getText());
+            CellUtil.createCell(row5_5,11,kalinlikTextField4.getText());
+            CellUtil.createCell(row5_5,12,capTextField4.getText());
+            CellUtil.createCell(row5_5,15,hataTipiTextField4.getText());
+            CellUtil.createCell(row5_5,17,hataninYeriTextField4.getText());
+            CellUtil.createCell(row5_5,20,sonucChoiceBox4.getValue().toString());
+
+            CellUtil.createCell(row5_6,0,"5");
+            CellUtil.createCell(row5_6,1,kaynakParcaNoTextfield5.getText());
+            CellUtil.createCell(row5_6,6,kontrolUzunTextField5.getText());
+            CellUtil.createCell(row5_6,8,kaynakYonTextField5.getText());
+            CellUtil.createCell(row5_6,11,kalinlikTextField5.getText());
+            CellUtil.createCell(row5_6,12,capTextField5.getText());
+            CellUtil.createCell(row5_6,15,hataTipiTextField5.getText());
+            CellUtil.createCell(row5_6,17,hataninYeriTextField5.getText());
+            CellUtil.createCell(row5_6,20,sonucChoiceBox5.getValue().toString());
+
+            CellUtil.createCell(row5_7,0,"6");
+            CellUtil.createCell(row5_7,1,kaynakParcaNoTextfield6.getText());
+            CellUtil.createCell(row5_7,6,kontrolUzunTextField6.getText());
+            CellUtil.createCell(row5_7,8,kaynakYonTextField6.getText());
+            CellUtil.createCell(row5_7,11,kalinlikTextField6.getText());
+            CellUtil.createCell(row5_7,12,capTextField6.getText());
+            CellUtil.createCell(row5_7,15,hataTipiTextField6.getText());
+            CellUtil.createCell(row5_7,17,hataninYeriTextField6.getText());
+            CellUtil.createCell(row5_7,20,sonucChoiceBox6.getValue().toString());
+
+            CellUtil.createCell(row6_2,4,operatorAdiLabel.getText());
+            CellUtil.createCell(row6_2,9,degerlendirenAdiLabel.getText());
+            CellUtil.createCell(row6_2,14,onaylayanAdiLabel.getText());
+            CellUtil.createCell(row6_2,18,musteriAdiLabel.getText());
+
+            CellUtil.createCell(row6_3,4,operatorLevelLabel.getText());
+            CellUtil.createCell(row6_3,9,degerlendirenLevelLabel.getText());
+            CellUtil.createCell(row6_3,14,onaylayanLevelLabel.getText());
+
+            CellUtil.createCell(row6_4,4,operatorTarihLabel.getText());
+            CellUtil.createCell(row6_4,9,degerlendirenTarihLabel.getText());
+            CellUtil.createCell(row6_4,14,onaylayanTarihLabel.getText());
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION, "Excel dosyası başarıyla oluşturulmuştur.",ButtonType.CLOSE);
+            alert.showAndWait();
 
             try {
                 FileOutputStream output = new FileOutputStream("test.xls");
@@ -998,8 +1141,51 @@ public class ManyetikParcacikMuayeneRaporuController {
     }
 
     public void scanButtonPushed(ActionEvent event) {
-        AnchorPane anchorPane = new AnchorPane();
-        anchorPane = raporAnchorPane;
+
+        int muayeneKapsamiInt = Integer.parseInt(muayeneKapsamıTextField.getText());
+
+
+        try{
+            if(musteriChoiceBox.getValue().toString() == null || projeAdiChoiceBox.getValue().toString() == null||
+                    testYeriTextField.getText().trim().isEmpty() || muayeneStandartıTextField.getText().trim().isEmpty() ||
+                    değerlendirenStandartıTextField.getText().trim().isEmpty() || muayeneProsedürüTextField.getText().trim().isEmpty() ||
+                    yuzeyDurumuChoiceBox.getValue().toString() == null || muayeneAsamasiChoiceBox.getValue().toString() == null||
+                    sayfaNoTextField.getText().trim().isEmpty() || raporNoTextField.getText().trim().isEmpty() ||
+                    isEmriNoChoiceBox.getValue().toString() == null || teklifNoChoiceBox.getValue().toString() == null ||
+                    kutupMesafesiTextField.getText().trim().isEmpty() || cihazTextField.getText().trim().isEmpty() ||
+                    mpTasiyiciOrtamTextField.getText().trim().isEmpty()  || miknatislamaTeknigiTextField.getText().trim().isEmpty() ||
+                    uvIsikSiddetiTextField.getText().trim().isEmpty() || isikMesafesiTextField.getText().trim().isEmpty() ||
+                    muayeneBolgesiTextField.getText().trim().isEmpty() || luxmetreTextField.getText().trim().isEmpty() ||
+                    yuzeySicakligiSpinner.getValue().toString() == null || muayeneBolgesindekiAlanSiddetiTextfield.getText().trim().isEmpty() ||
+                    yuzeyTextField.getText().trim().isEmpty() || isikCihaziTanimiTextField.getText().trim().isEmpty() ||
+                    kaldirmaTestiTarihiTextField.getText().trim().isEmpty() || kaynakParcaNoTextfield1.getText().trim().isEmpty()  ||
+                    kontrolUzunTextfield1.getText().trim().isEmpty() || kaynakYonTextField1.getText().trim().isEmpty() ||
+                    kalinlikTextField1.getText().trim().isEmpty() || capTextField1.getText().trim().isEmpty() ) {
+
+                AlertBox.createAlertBox("Lütfen gerekli tüm alanları giriniz.");
+                return;
+            }
+            else if(sonucChoiceBox1.getValue().toString() == "RED"){
+                if(hataninYeriTextField1.getText().trim().isEmpty() || hataTipiTextField1.getText().trim().isEmpty()){
+                    AlertBox.createAlertBox("Lütfen gerekli tüm alanları giriniz.");
+                    return;
+                }
+
+            }
+        }
+        catch(NullPointerException e){
+            AlertBox.createAlertBox("Lütfen gerekli tüm alanları giriniz.");
+            e.getMessage();
+            return;
+        }
+
+        if (muayeneKapsamiInt > 100 || 0 > muayeneKapsamiInt ||
+                !(muayeneKapsamıTextField.getText().length() == 1 || muayeneKapsamıTextField.getText().length() == 2 || muayeneKapsamıTextField.getText().length() == 3)) {
+            AlertBox.createAlertBox("Lütfen muayene kapsamı için 1'den 100'e kadar bir değer giriniz.\nGirilen değer: " + muayeneKapsamıTextField.getText());
+        }
+        else{
+            AnchorPane anchorPane = new AnchorPane();
+            anchorPane = raporAnchorPane;
             try {
                 WritableImage nodeshot = anchorPane.snapshot(new SnapshotParameters(), null);
 
@@ -1022,9 +1208,6 @@ public class ManyetikParcacikMuayeneRaporuController {
 
                 float height = (float) (nodeshot.getHeight() * factor);
 
-                System.out.println(box.getHeight() - height);
-                System.out.println((float)(nodeshot.getWidth() * factor));
-                System.out.println(height);
                 // beware of inverted y axis here
                 content.drawImage(pdimage, 0, (float) -75, (float) 623, 870);
 
@@ -1033,17 +1216,37 @@ public class ManyetikParcacikMuayeneRaporuController {
 
                 File outputFile = new File("C:\\Users\\Ogulcan\\IdeaProjects\\Software Engineering Project\\PDF.pdf");
 
+                Alert alert = new Alert(Alert.AlertType.INFORMATION, "PDF dosyası başarıyla oluşturulmuştur.",ButtonType.CLOSE);
+                alert.showAndWait();
+
                 doc.save(outputFile);
                 doc.close();
+
 
 
             } catch (Exception e) {
                 e.getMessage();
             }
 
+        }
     }
 
+
     public void initialize() throws  SQLException{
+
+        sonucChoiceBox1.getItems().addAll("RED","OK");
+        sonucChoiceBox2.getItems().addAll("RED","OK");
+        sonucChoiceBox3.getItems().addAll("RED","OK");
+        sonucChoiceBox4.getItems().addAll("RED","OK");
+        sonucChoiceBox5.getItems().addAll("RED","OK");
+        sonucChoiceBox6.getItems().addAll("RED","OK");
+
+        sonucChoiceBox1.setValue("OK");
+        sonucChoiceBox2.setValue("OK");
+        sonucChoiceBox3.setValue("OK");
+        sonucChoiceBox4.setValue("OK");
+        sonucChoiceBox5.setValue("OK");
+        sonucChoiceBox6.setValue("OK");
 
 
         projeAdiChoiceBox.getItems().addAll("KAYNAKÇI TESTİ");
@@ -1131,7 +1334,7 @@ public class ManyetikParcacikMuayeneRaporuController {
         }
     }
 
-    public void initOperatorData(String operator) throws  SQLException{
+    public boolean initOperatorData(String operator) throws  SQLException{
         Connection conn = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -1160,11 +1363,29 @@ public class ManyetikParcacikMuayeneRaporuController {
                     resultSet.getDate("calisanSertifikaTarihi").toLocalDate(),
                     resultSet.getString("calisanSifre"));
 
-            operatorAdiLabel.setText(newOperator.getCalisanAdi() + " " + newOperator.getCalisanSoyadi());
-            operatorLevelLabel.setText(newOperator.getCalisanLevel());
+            int calisanLevelInteger = Integer.parseInt(newOperator.getCalisanLevel());
+            LocalDate calisanSertifikaTarihi = newOperator.getCalisanSertifikaTarihi();
+
+            if(calisanLevelInteger < 3){
+                AlertBox.createAlertBox("Operator seviyesi en az 3 olmalıdır!");
+                return false;
+            }
+            else if(Period.between(calisanSertifikaTarihi, LocalDate.now()).getDays() > 0){
+                AlertBox.createAlertBox("Seçtiğiniz operatörün sertifika tarihi dolmuştur.\n" +
+                                                    "Lütfen başka bir değerlendiren seçiniz.");
+                return false;
+                }
+            else{
+                operatorAdiLabel.setText(newOperator.getCalisanAdi() + " " + newOperator.getCalisanSoyadi());
+                operatorLevelLabel.setText(newOperator.getCalisanLevel());
+                return true;
+            }
+
+
         }
         catch (Exception e){
             e.getMessage();
+            return false;
         }
         finally {
             if(conn!=null) conn.close();
@@ -1174,7 +1395,7 @@ public class ManyetikParcacikMuayeneRaporuController {
         }
     }
 
-    public void initDegerlendirenData(String degerlendiren) throws SQLException{
+    public boolean initDegerlendirenData(String degerlendiren) throws SQLException{
         Connection conn = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -1202,12 +1423,28 @@ public class ManyetikParcacikMuayeneRaporuController {
                     resultSet.getString("calisanLevel"),
                     resultSet.getDate("calisanSertifikaTarihi").toLocalDate(),
                     resultSet.getString("calisanSifre"));
+            int calisanLevelInteger = Integer.parseInt(newDegerlendiren.getCalisanLevel());
+            LocalDate calisanSertifikaTarihi = newDegerlendiren.getCalisanSertifikaTarihi();
 
-            degerlendirenAdiLabel.setText(newDegerlendiren.getCalisanAdi() + " " + newDegerlendiren.getCalisanSoyadi());
-            degerlendirenLevelLabel.setText(newDegerlendiren.getCalisanLevel());
+            if(calisanLevelInteger < 2){
+                AlertBox.createAlertBox("Değerlendiren seviyesi en az 2 olmalıdır!");
+                return false;
+            }
+            else if(Period.between(calisanSertifikaTarihi, LocalDate.now()).getDays() > 0) {
+                AlertBox.createAlertBox("Seçtiğiniz değerlendirenin sertifika tarihi dolmuştur.\n" +
+                        "Lütfen başka bir değerlendiren seçiniz.");
+                return false;
+            }
+            else{
+                degerlendirenAdiLabel.setText(newDegerlendiren.getCalisanAdi() + " " + newDegerlendiren.getCalisanSoyadi());
+                degerlendirenLevelLabel.setText(newDegerlendiren.getCalisanLevel());
+                return true;
+            }
+
         }
         catch (Exception e){
             e.getMessage();
+            return false;
         }
         finally {
             if(conn!=null) conn.close();
@@ -1216,7 +1453,7 @@ public class ManyetikParcacikMuayeneRaporuController {
         }
     }
 
-    public void initOnaylayanData(String onaylayan) throws SQLException{
+    public boolean initOnaylayanData(String onaylayan) throws SQLException{
         Connection conn = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
@@ -1244,13 +1481,28 @@ public class ManyetikParcacikMuayeneRaporuController {
                     resultSet.getString("calisanLevel"),
                     resultSet.getDate("calisanSertifikaTarihi").toLocalDate(),
                     resultSet.getString("calisanSifre"));
+            int calisanLevelInteger = Integer.parseInt(newOnaylayan.getCalisanLevel());
+            LocalDate calisanSertifikaTarihi = newOnaylayan.getCalisanSertifikaTarihi();
 
+            if(calisanLevelInteger < 4){
+                AlertBox.createAlertBox("Onaylayan seviyesi en az 4 olmalıdır!");
+                return false;
+            }
+            else if(Period.between(calisanSertifikaTarihi, LocalDate.now()).getDays() > 0) {
+                AlertBox.createAlertBox("Seçtiğiniz onaylayanın sertifika tarihi dolmuştur.\n" +
+                        "Lütfen başka bir onaylayan seçiniz.");
+                return false;
+            }
+            else{
+                onaylayanAdiLabel.setText(newOnaylayan.getCalisanAdi() + " " + newOnaylayan.getCalisanSoyadi());
+                onaylayanLevelLabel.setText(newOnaylayan.getCalisanLevel());
+                return true;
+            }
 
-            onaylayanAdiLabel.setText(newOnaylayan.getCalisanAdi() + " " + newOnaylayan.getCalisanSoyadi());
-            onaylayanLevelLabel.setText(newOnaylayan.getCalisanLevel());
         }
         catch (Exception e){
             e.getMessage();
+            return false;
         }
         finally {
             if(conn!=null) conn.close();
@@ -1293,5 +1545,15 @@ public class ManyetikParcacikMuayeneRaporuController {
 
         }
     }
+    public void initRaporTarihi(LocalDate date){
+        raporTarihiLabel.setText(date.toString());
+        operatorTarihLabel.setText(date.toString());
+        degerlendirenTarihLabel.setText(date.toString());
+        onaylayanTarihLabel.setText(date.toString());
+    }
+    public void initMuayeneTarihi(LocalDate date){
+        muayeneTarihleriLabel.setText(date.toString());
+    }
+
    }
 
