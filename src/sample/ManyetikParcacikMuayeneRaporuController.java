@@ -1,5 +1,6 @@
 package sample;
 
+//Oğulcan Şahin 170503007
 
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -192,13 +193,18 @@ public class ManyetikParcacikMuayeneRaporuController {
     public String operatorAdi,operatorSoyadi, onaylayanAdi, onaylayanSoyadi, degerlendirenAdi, degerlendirenSoyadi;
 
     public void geriButtonPushed(ActionEvent event) throws IOException {
-        Parent AdminAnaEkranParent = FXMLLoader.load(getClass().getResource("RaporSecimEkrani.fxml"));
-        Scene AdminAnaEkranScene = new Scene(AdminAnaEkranParent);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("RaporSecimEkrani.fxml"));
+        Parent raporSecimEkraniParent = loader.load();
 
-        //This line get the stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Scene raporSecimEkrani = new Scene(raporSecimEkraniParent);
 
-        window.setScene(AdminAnaEkranScene);
+        RaporSecimEkraniController controller = loader.getController();
+        controller.disableGeriButton();
+
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        window.setScene(raporSecimEkrani);
         window.show();
     }
 

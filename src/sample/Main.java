@@ -1,5 +1,7 @@
 package sample;
 
+//Oğulcan Şahin 170503007
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

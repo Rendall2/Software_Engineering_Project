@@ -1,5 +1,7 @@
 package sample;
 
+//Oğulcan Şahin 170503007
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,18 +21,13 @@ public class AdminLoginController {
     @FXML Label errorLabel;
 
     public void geriButtonPushed(ActionEvent event) throws IOException {
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("RaporSecimEkrani.fxml"));
-        Parent raporSecimEkraniParent = loader.load();
+        Parent AdminAnaEkranParent = FXMLLoader.load(getClass().getResource("Login.fxml"));
+        Scene AdminAnaEkranScene = new Scene(AdminAnaEkranParent);
 
-        Scene raporSecimEkrani = new Scene(raporSecimEkraniParent);
+        //This line get the stage information
+        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
 
-        RaporSecimEkraniController controller = loader.getController();
-        controller.disableGeriButton();
-
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
-        window.setScene(raporSecimEkrani);
+        window.setScene(AdminAnaEkranScene);
         window.show();
     }
 
@@ -48,9 +45,12 @@ public class AdminLoginController {
             window.setScene(AdminAnaEkranScene);
             window.show();
             }
-            else{
-                errorLabel.setText("Hatalı şifre! Lütfen tekrar deneyiniz.");
-            }
+        else if(adminSifrePasswordField.getText().trim().isEmpty()){
+            errorLabel.setText("Lütfen şifrenizi giriniz.");
+        }
+        else{
+            errorLabel.setText("Hatalı şifre! Lütfen tekrar deneyiniz.");
+        }
         }
 
 

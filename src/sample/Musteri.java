@@ -1,6 +1,7 @@
 package sample;
 
-import javafx.beans.property.SimpleStringProperty;
+//Oğulcan Şahin 170503007
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

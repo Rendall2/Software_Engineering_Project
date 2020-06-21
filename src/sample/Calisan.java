@@ -1,6 +1,6 @@
 package sample;
 
-
+//Oğulcan Şahin 170503007
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;
 import java.time.LocalDate;

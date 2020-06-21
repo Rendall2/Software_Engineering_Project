@@ -1,5 +1,7 @@
 package sample;
 
+//Oğulcan Şahin 170503007
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;

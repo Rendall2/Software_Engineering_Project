@@ -1,5 +1,7 @@
 package sample;
 
+//Oğulcan Şahin 170503007
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -67,12 +69,16 @@ public class LoginController {
                 window.setScene(raporSecimEkrani);
                 window.show();
             }
-            else if(şifrePasswordField.getText().isEmpty()){
+            else if(şifrePasswordField.getText().trim().isEmpty() && kullaniciAdiTextField.getText().trim().isEmpty()){
+                System.out.println("asdf");
+                errorLabel.setText("Lütfen kullanıcı adınızı ve şifrenizi giriniz!");
+            }
+            else if(şifrePasswordField.getText().trim().isEmpty()){
                 errorLabel.setText("Lütfen şifrenizi giriniz!");
             }
             else
             {
-                errorLabel.setText("Hatalı giriş! Lütfen tekrar deneyiniz");
+                errorLabel.setText("Hatalı giriş! Lütfen tekrar deneyiniz.");
             }
         }
 
@@ -82,7 +88,7 @@ public class LoginController {
                 errorLabel.setText("Lütfen şifrenizi giriniz!");
             }
             else{
-                errorLabel.setText("Hatalı giriş! Lütfen tekrar deneyiniz");
+                errorLabel.setText("Hatalı giriş! Lütfen tekrar deneyiniz.");
             }
 
             e.getMessage();
@@ -100,11 +106,17 @@ public class LoginController {
             e.getMessage();
         }
         catch (NumberFormatException e){
-            if(şifrePasswordField.getText().isEmpty()){
+            if(şifrePasswordField.getText().trim().isEmpty() && kullaniciAdiTextField.getText().trim().isEmpty()){
                 errorLabel.setText("Lütfen kullanıcı adınızı ve şifrenizi giriniz!");
             }
+            else if(şifrePasswordField.getText().isEmpty()){
+                errorLabel.setText("Lütfen şifrenizi giriniz!");
+            }
+            else if(!(şifrePasswordField.getText().trim().isEmpty()) && !(kullaniciAdiTextField.getText().trim().isEmpty())){
+                errorLabel.setText("Hatalı giriş! Lütfen tekrar deneyiniz.");
+            }
             else{
-                errorLabel.setText("Lütfen kullanıcı adınızı giriniz!");
+                errorLabel.setText("Lütfen kullanıcı adınızı giriniz.");
             }
 
 
